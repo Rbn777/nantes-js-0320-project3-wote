@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
+import ProjectRouter from './router/Router';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Hello YOU MADMEN</header>
+      <ProjectRouter />
     </div>
   );
 }
