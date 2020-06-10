@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button, MainWrapper } from '../styles/Button';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,11 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h2>Page Login</h2>
+        <MainWrapper>
+          <h2>Page Login</h2>
+          <Button>Bouton</Button>
+          <Button>Primary</Button>
+        </MainWrapper>
       </div>
     );
   }
