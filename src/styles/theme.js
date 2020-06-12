@@ -31,9 +31,6 @@ const mediaMin = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
-const fontFamilyNormal = 'Museo';
-const mainTextColor = 'blue';
-
 export default {
   // Colors.
   lightGrey: '#F2F0ED',
@@ -44,18 +41,7 @@ export default {
   lightBlue: '#A0C1B8',
   // Fonts.
   fontWeightNormal: 500,
-  fontWeightLight: 300,
-  fontWeightBold: 600,
-  fontFamilyNormal,
-  mainFont: css`
-    font-family: ${fontFamilyNormal};
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: ${(props) => (props.bold ? '600' : '400')};
-    font-variant: none;
-    font-feature-settings: normal;
-    color: ${mainTextColor};
-  `,
+  fontWeightBold: 900,
   // Media queries.
   mediaMax,
   mediaMin,
