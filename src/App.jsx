@@ -8,12 +8,12 @@ import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
+    <>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <ProjectRouter />
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
