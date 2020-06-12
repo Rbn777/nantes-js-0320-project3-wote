@@ -1,11 +1,19 @@
 import React from 'react';
 import './App.css';
+import { ThemeProvider } from 'styled-components';
+
+import theme from './styles/theme';
+import ProjectRouter from './router/Router';
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Hello React World</header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <ProjectRouter />
+      </ThemeProvider>
+    </>
   );
 }
 
