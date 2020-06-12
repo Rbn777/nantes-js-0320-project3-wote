@@ -10,8 +10,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <ProjectRouter />
         <GlobalStyle />
+        <ProjectRouter />
       </div>
     </ThemeProvider>
   );
