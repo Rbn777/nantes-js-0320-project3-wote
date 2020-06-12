@@ -1,23 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Login from '../components/Login';
-import Register from '../components/Register';
-import PwdModification from '../components/PwdModification';
-import TermsOfUse from '../components/TermsOfUse';
-import MadeInComparisons from '../components/MadeInComparisons';
-import Priorities from '../components/Priorities';
-import Convictions from '../components/Convictions';
-import MadeInDetails from '../components/MadeInDetails';
-import AllMadeInComparisons from '../components/AllMadeInComparisons';
-import Indicators from '../components/Indicators';
-import IndicatorDetails from '../components/IndicatorDetails';
-import IndicatorDetailsSource from '../components/IndicatorDetailsSource';
-import IndicatorDetailsDatas from '../components/IndicatorDetailsDatas';
-import ProductsComparisons from '../components/ProductsComparisons';
-import ProductDetails from '../components/ProductDetails';
-import AddProduct from '../components/AddProduct';
-import AddProductManually from '../components/AddProductManually';
+import Login from '../views/Login';
+import Register from '../views/Register';
+import PwdModification from '../views/PwdModification';
+import TermsOfUse from '../views/TermsOfUse';
+import MadeInComparisons from '../views/MadeInComparisons';
+import Priorities from '../views/Priorities';
+import Convictions from '../views/Convictions';
+import MadeInDetails from '../views/MadeInDetails';
+import AllMadeInComparisons from '../views/AllMadeInComparisons';
+import Indicators from '../views/Indicators';
+import IndicatorDetails from '../views/IndicatorDetails';
+import IndicatorDetailsSource from '../views/IndicatorDetailsSource';
+import IndicatorDetailsDatas from '../views/IndicatorDetailsDatas';
+import ProductsComparisons from '../views/ProductsComparisons';
+import ProductDetails from '../views/ProductDetails';
+import AddProduct from '../views/AddProduct';
+import AddProductManually from '../views/AddProductManually';
 
 const ProjectRouter = () => {
   return (

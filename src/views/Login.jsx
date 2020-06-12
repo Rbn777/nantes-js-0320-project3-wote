@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, MainWrapper } from '../styles/Button';
+import Button from '../components/Button';
 
 class Login extends React.Component {
   constructor(props) {
@@ -11,11 +11,10 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <MainWrapper>
-          <h2>Page Login</h2>
-          <Button>Bouton</Button>
-          <Button>Primary</Button>
-        </MainWrapper>
+        <h2>Page Login</h2>
+        <Button greenBg>Bouton</Button>
+        <Button salmonBg>Bouton</Button>
+        <Button blueBg>Bouton</Button>
       </div>
     );
   }

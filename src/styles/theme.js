@@ -31,21 +31,17 @@ const mediaMin = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
-const fontFamilyNormal = 'Arial';
+const fontFamilyNormal = 'Museo';
 const mainTextColor = 'blue';
 
 export default {
   // Colors.
-  featureColor: '#c8a195',
-  featureColorLighter: '#e2bbaf',
-  secondaryFeatureColor: '#aec0bd',
-  featureColorDarker: '#D9B7A8',
+  lightGrey: '#F2F0ED',
   darkGrey: 'rgba(45,44,44,0.5)',
   white: '#f9f8f6',
-  lightGrey: '#F2F0ED',
-  lightBlack: '#2D2D2C',
-  reviewTextColor: '#A6A6A6',
-  mainTextColor: 'blue',
+  lightGreen: '#A6A6A6',
+  salmon: '#FF9C71',
+  lightBlue: '#A0C1B8',
   // Fonts.
   fontWeightNormal: 500,
   fontWeightLight: 300,
@@ -53,7 +49,7 @@ export default {
   fontFamilyNormal,
   mainFont: css`
     font-family: ${fontFamilyNormal};
-    font-size: 1.6rem;
+    font-size: 4rem;
     font-style: normal;
     font-weight: ${(props) => (props.bold ? '600' : '400')};
     font-variant: none;
