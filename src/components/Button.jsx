@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const ButtonStyled = styled.button`
+  font-family: 'MuseoNormal';
+  font-size: 1.2rem;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -14,9 +16,14 @@ const ButtonStyled = styled.button`
   }
 `;
 
-const Button = ({ children, greenBg, salmonBg, lightBlue }) => {
+const Button = ({ children, buttonType, greenBg, salmonBg, lightBlue }) => {
   return (
-    <ButtonStyled greenBg={greenBg} salmonBg={salmonBg} lightBlue={lightBlue}>
+    <ButtonStyled
+      type={buttonType}
+      greenBg={greenBg}
+      salmonBg={salmonBg}
+      lightBlue={lightBlue}
+    >
       {children}
     </ButtonStyled>
   );
@@ -27,6 +34,7 @@ Button.propTypes = {
   greenBg: PropTypes.string.isRequired,
   salmonBg: PropTypes.string.isRequired,
   lightBlue: PropTypes.string.isRequired,
+  buttonType: PropTypes.string.isRequired,
 };
 
 export default Button;
