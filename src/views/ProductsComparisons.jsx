@@ -1,18 +1,11 @@
 import React from 'react';
 
-class ProductsComparisons extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Page Comparaisons des produits</h2>
-      </div>
-    );
-  }
-}
+const ProductsComparisons = () => {
+  return (
+    <div>
+      <h2>Page Comparaisons des produits</h2>
+    </div>
+  );
+};
 
 export default ProductsComparisons;
