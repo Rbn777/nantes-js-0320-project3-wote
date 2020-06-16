@@ -16,3 +16,15 @@ export const FlexDiv = styled.div`
 export const FlexAlignSelfEnd = styled.div`
   align-self: end;
 `;
+
+export const MainHeader = styled.header`
+  height: 20vh;
+  display: flex;
+  padding: 10px;
+  text-align: center;
+`;
+
+export const MainContainer = styled.div`
+  margin: 15px;
+  text-align: center;
+`;
