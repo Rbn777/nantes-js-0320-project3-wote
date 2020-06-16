@@ -7,7 +7,7 @@ const FormStyled = styled.form`
   flex-direction: column;
   row-gap: 2rem;
   padding: 20px;
-  background-color: ${(props) => props.theme.salmon};
+  background-color: ${(props) => props.theme.lightGrey};
 `;
 
 const TitleStyled = styled.h2`
