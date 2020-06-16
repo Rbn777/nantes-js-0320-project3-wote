@@ -6,7 +6,7 @@ const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  padding: 10px;
+  padding: 20px;
   background-color: ${(props) => props.theme.salmon};
 `;
 
