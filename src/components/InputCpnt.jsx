@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const DivInput = styled.div`
   display: flex;
   row-gap: 3px;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.rowReverse ? 'row-reverse' : 'column')};
+  justify-content: ${(props) => props.rowReverse && 'space-around'};
   width: 100%;
 `;
 
@@ -26,9 +27,10 @@ const InputCpnt = ({
   nameForInput,
   inputPlaceHolder,
   onChangeFunc,
+  rowReverse,
 }) => {
   return (
-    <DivInput>
+    <DivInput rowReverse={rowReverse}>
       <LabelStyled htmlFor={nameForInput}>{labelText}</LabelStyled>
       <InputStyled
         type={inputType}
@@ -47,6 +49,7 @@ InputCpnt.propTypes = {
   nameForInput: PropTypes.string.isRequired,
   inputPlaceHolder: PropTypes.string.isRequired,
   onChangeFunc: PropTypes.func.isRequired,
+  rowReverse: PropTypes.string.isRequired,
 };
 
 export default InputCpnt;
