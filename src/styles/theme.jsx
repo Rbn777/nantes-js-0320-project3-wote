@@ -37,7 +37,7 @@ export default {
   lightGrey: '#F2F0ED',
   darkGrey: '#2c2c2c',
   white: '#f9f8f6',
-  lightGreen: '#A6A6A6',
+  lightGreen: '#6bed5c',
   salmon: '#FF9C71',
   lightBlue: '#A0C1B8',
   // Fonts.
