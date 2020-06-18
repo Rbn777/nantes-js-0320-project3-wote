@@ -16,13 +16,21 @@ const ButtonStyled = styled.button`
   }
 `;
 
-const Button = ({ children, buttonType, greenBg, salmonBg, lightBlue }) => {
+const Button = ({
+  children,
+  buttonType,
+  greenBg,
+  salmonBg,
+  lightBlue,
+  disabled,
+}) => {
   return (
     <ButtonStyled
       type={buttonType}
       greenBg={greenBg}
       salmonBg={salmonBg}
       lightBlue={lightBlue}
+      disabled={disabled}
     >
       {children}
     </ButtonStyled>
@@ -35,6 +43,7 @@ Button.propTypes = {
   salmonBg: PropTypes.string.isRequired,
   lightBlue: PropTypes.string.isRequired,
   buttonType: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
 
 export default Button;
