@@ -26,8 +26,10 @@ const InputCpnt = ({
   inputType,
   nameForInput,
   inputPlaceHolder,
+  value,
   onChangeFunc,
   rowReverse,
+  inputRequired,
 }) => {
   return (
     <DivInput rowReverse={rowReverse}>
@@ -36,8 +38,10 @@ const InputCpnt = ({
         type={inputType}
         id={nameForInput}
         name={nameForInput}
+        value={value}
         placeholder={inputPlaceHolder}
         onChange={onChangeFunc}
+        required={inputRequired}
       />
     </DivInput>
   );
@@ -48,8 +52,10 @@ InputCpnt.propTypes = {
   inputType: PropTypes.string.isRequired,
   nameForInput: PropTypes.string.isRequired,
   inputPlaceHolder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChangeFunc: PropTypes.func.isRequired,
   rowReverse: PropTypes.string.isRequired,
+  inputRequired: PropTypes.bool.isRequired,
 };
 
 export default InputCpnt;
