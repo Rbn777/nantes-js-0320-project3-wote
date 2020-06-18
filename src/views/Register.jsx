@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -17,7 +18,7 @@ const RegisterContainer = styled(FlexDiv)`
   padding: 4rem 1rem;
 `;
 
-const Register = () => {
+const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
@@ -39,7 +40,7 @@ const Register = () => {
     setTermsOfUseCheck(!termsOfUseCheck);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password || !passwordCheck || !termsOfUseCheck) {
       toast.warn(`Tous les champs doivent être renseignés...`, {
@@ -56,18 +57,21 @@ const Register = () => {
     } else if (!termsOfUseCheck) {
       toast.error("Les conditions d'utilisation doivent être approuvées", {});
     } else {
-      axios
-        .post(`http://localhost:4545/api/users`, { email, password })
-        .then((response) => response.data)
-        .then((res) => {
-          toast.success(`L'utilisateur a été ajouté avec l'ID ${res.id} !`, {});
-        })
-        .catch((error) => {
-          toast.success(
-            `Erreur lors de l'ajout d'un utilisateur : ${error.message}`,
-            {}
-          );
+      try {
+        await axios.post(`http://localhost:4545/api/users`, {
+          email,
+          password,
         });
+        setTimeout(() => {
+          props.history.push('/pwd-modification');
+        }, 2500);
+        toast.success(`L'utilisateur a été ajouté avec succès !`, {});
+      } catch (error) {
+        toast.error(
+          `Erreur lors de l'ajout d'un utilisateur : ${error.message}`,
+          {}
+        );
+      }
     }
   };
 
@@ -123,7 +127,7 @@ const Register = () => {
       </FormCpnt>
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -134,6 +138,11 @@ const Register = () => {
       />
     </RegisterContainer>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.string.isRequired,
+  push: PropTypes.func.isRequired,
 };
 
 export default Register;
