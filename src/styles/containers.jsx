@@ -20,6 +20,10 @@ export const FlexAlignSelfEnd = styled.div`
 export const MainHeader = styled.header`
   display: flex;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 10vh;
   width: 100%;
   padding: 10px;
@@ -33,4 +37,8 @@ export const MainContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.darkGrey};
+`;
+
+export const MainContainerWithHeader = styled(MainContainer)`
+  padding-top: 9rem;
 `;
