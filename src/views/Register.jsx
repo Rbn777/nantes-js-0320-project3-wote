@@ -11,13 +11,6 @@ import Button from '../components/Button';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
-// const RegisterContainer = styled(FlexDiv)`
-//   height: 90vh;
-//   justify-content: end;
-//   background-color: ${(props) => props.theme.darkGrey};
-//   padding: 4rem 1rem;
-// `;
-
 const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
