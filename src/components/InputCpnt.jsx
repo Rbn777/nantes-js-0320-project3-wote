@@ -18,6 +18,7 @@ const InputStyled = styled.input`
 
 const LabelStyled = styled.label`
   align-self: start;
+  color: ${(props) => props.theme.white};
 `;
 
 const InputCpnt = ({

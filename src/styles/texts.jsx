@@ -21,5 +21,6 @@ export const H2 = styled.h2`
 `;
 
 export const TextParagraph = styled.p`
-  color: ${(props) => props.grey && props.theme.grey};
+  color: ${(props) => props.theme.white};
+  text-align: left;
 `;
