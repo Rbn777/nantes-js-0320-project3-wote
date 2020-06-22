@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const DivInput = styled.div`
   display: flex;
   row-gap: 3px;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.rowReverse ? 'row-reverse' : 'column')};
+  justify-content: ${(props) => props.rowReverse && 'space-around'};
   width: 100%;
 `;
 
@@ -26,17 +27,22 @@ const InputCpnt = ({
   inputType,
   nameForInput,
   inputPlaceHolder,
+  value,
   onChangeFunc,
+  rowReverse,
+  inputRequired,
 }) => {
   return (
-    <DivInput>
+    <DivInput rowReverse={rowReverse}>
       <LabelStyled htmlFor={nameForInput}>{labelText}</LabelStyled>
       <InputStyled
         type={inputType}
         id={nameForInput}
         name={nameForInput}
+        value={value}
         placeholder={inputPlaceHolder}
         onChange={onChangeFunc}
+        required={inputRequired}
       />
     </DivInput>
   );
@@ -47,7 +53,10 @@ InputCpnt.propTypes = {
   inputType: PropTypes.string.isRequired,
   nameForInput: PropTypes.string.isRequired,
   inputPlaceHolder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChangeFunc: PropTypes.func.isRequired,
+  rowReverse: PropTypes.string.isRequired,
+  inputRequired: PropTypes.bool.isRequired,
 };
 
 export default InputCpnt;

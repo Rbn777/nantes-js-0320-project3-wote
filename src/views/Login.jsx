@@ -38,7 +38,9 @@ const Login = () => {
           nameForInput="userPassword"
           inputPlaceHolder="Mot de passe..."
         />
-        <Button buttonType="submit">Entrer</Button>
+        <Button buttonType="submit" greenBg>
+          Entrer
+        </Button>
       </FormCpnt>
       <Link to="/register">
         <TextParagraph grey>Créer un compte utilisateur</TextParagraph>
