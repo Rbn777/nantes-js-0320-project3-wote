@@ -4,7 +4,7 @@ export const H1 = styled.h1`
   font-family: 'MuseoBold';
   font-size: 2.5rem;
   margin: 3vh;
-  color: ${(props) => props.theme.grey};
+  color: ${(props) => props.theme.white};
 `;
 
 export const SectionTitle = styled.h2`
