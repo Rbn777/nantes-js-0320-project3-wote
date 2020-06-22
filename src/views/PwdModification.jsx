@@ -31,7 +31,9 @@ const PwdModification = () => {
             nameForInput="userPassword"
             inputPlaceHolder="..."
           />
-          <Button type="submit">Enregistrer</Button>
+          <Button type="submit" greenBg>
+            Enregistrer
+          </Button>
         </FormCpnt>
       </MainContainer>
     </>
