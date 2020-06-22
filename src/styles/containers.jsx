@@ -23,10 +23,13 @@ export const MainHeader = styled.header`
   height: 10vh;
   padding: 10px;
   text-align: center;
-  background-color: ${(props) => props.theme.grey};
+  background-color: ${(props) => props.theme.lightGrey};
 `;
 
 export const MainContainer = styled.div`
-  margin: 15px;
   text-align: center;
+  padding: 30px;
+  min-height: 100vh;
+  width: 100%;
+  background-color: ${(props) => props.theme.darkGrey};
 `;
