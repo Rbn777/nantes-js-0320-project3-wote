@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,14 +8,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
-import { FlexDiv } from '../styles/containers';
+import { MainHeader, MainContainerWithHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
 
-const RegisterContainer = styled(FlexDiv)`
-  height: 100vh;
-  justify-content: end;
-  background-color: ${(props) => props.theme.darkGrey};
-  padding: 4rem 1rem;
-`;
+// const RegisterContainer = styled(FlexDiv)`
+//   height: 90vh;
+//   justify-content: end;
+//   background-color: ${(props) => props.theme.darkGrey};
+//   padding: 4rem 1rem;
+// `;
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
@@ -76,7 +76,10 @@ const Register = (props) => {
   };
 
   return (
-    <RegisterContainer column>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Enregistrement</SectionTitle>
+      </MainHeader>
       <FormCpnt submitFuncToPass={handleSubmit}>
         <InputCpnt
           labelText="Email"
@@ -136,7 +139,7 @@ const Register = (props) => {
         draggable
         pauseOnHover
       />
-    </RegisterContainer>
+    </MainContainerWithHeader>
   );
 };
 
