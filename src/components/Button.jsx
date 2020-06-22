@@ -22,7 +22,7 @@ const Button = ({ children, buttonType, greenBg, salmonBg, blueBg }) => {
       type={buttonType}
       greenBg={greenBg}
       salmonBg={salmonBg}
-      lightBlue={blueBg}
+      blueBg={blueBg}
     >
       {children}
     </ButtonStyled>
