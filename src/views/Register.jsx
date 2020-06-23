@@ -16,6 +16,10 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [termsOfUseCheck, setTermsOfUseCheck] = useState(false);
+  const [isPasswordOk, setIsPasswordOk] = useState(false);
+
+  const checkPasswordStandard = (pass) =>
+    pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -23,6 +27,7 @@ const Register = (props) => {
 
   const handleNewPassword = (e) => {
     setPassword(e.target.value);
+    checkPasswordStandard(e.target.value);
   };
 
   const handleConfirmPassword = (e) => {
@@ -45,6 +50,11 @@ const Register = (props) => {
         draggable: true,
         progress: undefined,
       });
+    } else if (!isPasswordOk) {
+      toast.error(
+        'Le mot de passe doit comporter 8 caractères au minimum...',
+        {}
+      );
     } else if (password !== passwordCheck) {
       toast.error('Les mots de passe doivent correspondre', {});
     } else if (!termsOfUseCheck) {
