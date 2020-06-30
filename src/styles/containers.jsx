@@ -33,7 +33,7 @@ export const MainHeader = styled.header`
 export const MainContainer = styled.div`
   text-align: center;
   padding: 30px;
-  min-height: 90vh;
+  min-height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.darkGrey};
 `;

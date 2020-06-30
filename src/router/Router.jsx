@@ -29,7 +29,10 @@ const ProjectRouter = () => {
         <Route path="/register/terms-of-use" component={TermsOfUse} />
         <Route path="/made-in-comparisons" component={MadeInComparisons} />
         <Route exact path="/profil/priorities" component={Priorities} />
-        <Route path="/profil/priorities/convictions" component={Convictions} />
+        <Route
+          path="/profil/priorities/convictions/:type"
+          component={Convictions}
+        />
         <Route path="/made-in-details" component={MadeInDetails} />
         <Route path="/indicator-details" component={IndicatorDetails} />
         <Route

@@ -1,10 +1,15 @@
 import React from 'react';
 
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
+
 const AddProduct = () => {
   return (
-    <div>
-      <h2>Page Ajout d&apos;un produit</h2>
-    </div>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Scanner un produit</SectionTitle>
+      </MainHeader>
+    </MainContainerWithHeader>
   );
 };
 
