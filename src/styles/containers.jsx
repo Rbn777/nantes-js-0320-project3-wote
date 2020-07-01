@@ -26,10 +26,23 @@ export const MainHeader = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  height: 10vh;
+  height: 100px;
+  width: 100%;
   padding: 10px;
   text-align: center;
   background-color: ${(props) => props.theme.lightGrey};
+`;
+
+export const MainHeaderEcology = styled(MainHeader)`
+  background-color: ${(props) => props.theme.mainGreen};
+`;
+
+export const MainHeaderRights = styled(MainHeader)`
+  background-color: ${(props) => props.theme.salmon};
+`;
+
+export const MainHeaderSociety = styled(MainHeader)`
+  background-color: ${(props) => props.theme.mainBlue};
 `;
 
 export const MainContainer = styled.div`
@@ -90,4 +103,17 @@ export const DetailsIndicatorDiv = styled.div`
   &.hide {
     display: none;
   }
+`;
+
+export const DivCursor = styled.div`
+  color: ${(props) => props.theme.white};
+  width: 100%;
+  text-align: justify;
+  border-bottom: 0.2px solid ${(props) => props.theme.white};
+  padding: 3vh 0vh;
+`;
+
+export const DivButtonConvictions = styled.div`
+  color: ${(props) => props.theme.white};
+  margin: 20px;
 `;

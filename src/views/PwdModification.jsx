@@ -10,9 +10,8 @@ import { MainContainerWithHeader } from '../styles/containers';
 const PwdModification = () => {
   return (
     <MainContainerWithHeader>
-      <MainheaderComp title="Modification du mot de passe">
-        <BurgerMenu />
-      </MainheaderComp>
+      <MainheaderComp title="Modification du mot de passe" />
+      <BurgerMenu />
       <FormCpnt>
         <InputCpnt
           labelText="Ancien mot de passe"

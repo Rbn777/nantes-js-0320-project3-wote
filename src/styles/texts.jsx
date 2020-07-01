@@ -12,6 +12,7 @@ export const SectionTitle = styled.h2`
   text-align: center;
   padding: 10px;
   font-family: 'MuseoBold';
+  width: 50%;
   align-self: center;
   color: white;
 `;
@@ -30,4 +31,8 @@ export const TitleIndicator = styled.h3`
   text-align: left;
   font-family: 'MuseoBold';
   font-weight: ${(props) => props.theme.fontWeightBold};
+`;
+
+export const DivCursorTitle = styled.h3`
+  font-family: 'MuseoBold';
 `;
