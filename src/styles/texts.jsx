@@ -26,6 +26,13 @@ export const TextParagraph = styled.p`
   text-align: left;
 `;
 
+export const TitleIndicator = styled.h3`
+  padding-left: 1rem;
+  text-align: left;
+  font-family: 'MuseoBold';
+  font-weight: ${(props) => props.theme.fontWeightBold};
+`;
+
 export const DivCursorTitle = styled.h3`
   font-family: 'MuseoBold';
 `;

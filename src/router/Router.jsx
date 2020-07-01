@@ -48,6 +48,7 @@ const ProjectRouter = () => {
           component={AllMadeInComparisons}
         />
         <Route path="/indicators" component={Indicators} />
+        <Route path="/indicators/:type" component={Indicators} />
         <Route
           exact
           path="/products-comparisons"
