@@ -6,8 +6,8 @@ import './BurgerMenu.css';
 
 const BurgerMenu = () => {
   return (
-    <Menu>
-      email@dur.com
+    <Menu right width="80%">
+      <p>email@dur.com</p>
       <Link to="/profil/priorities">Mes Convictions et priorités</Link>
       <Link to="/made-in-comparisons">
         Comparer des origines de fabrication

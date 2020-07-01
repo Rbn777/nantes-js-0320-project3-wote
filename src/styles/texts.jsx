@@ -12,6 +12,7 @@ export const SectionTitle = styled.h2`
   text-align: center;
   padding: 10px;
   font-family: 'MuseoBold';
+  width: 50%;
   align-self: center;
   color: white;
 `;
