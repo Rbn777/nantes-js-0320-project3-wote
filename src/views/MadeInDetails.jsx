@@ -1,10 +1,15 @@
 import React from 'react';
 
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
+
 const MadeInDetails = () => {
   return (
-    <div>
-      <h2>Page Details des Made In</h2>
-    </div>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Détails d&apos;une origine de fabrication</SectionTitle>
+      </MainHeader>
+    </MainContainerWithHeader>
   );
 };
 
