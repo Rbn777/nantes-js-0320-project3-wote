@@ -24,3 +24,10 @@ export const TextParagraph = styled.p`
   color: ${(props) => props.theme.white};
   text-align: left;
 `;
+
+export const TitleIndicator = styled.h3`
+  padding-left: 1rem;
+  text-align: left;
+  font-family: 'MuseoBold';
+  font-weight: ${(props) => props.theme.fontWeightBold};
+`;
