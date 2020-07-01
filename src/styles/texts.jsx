@@ -25,3 +25,7 @@ export const TextParagraph = styled.p`
   color: ${(props) => props.theme.white};
   text-align: left;
 `;
+
+export const DivCursorTitle = styled.h3`
+  font-family: 'MuseoBold';
+`;

@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import Cursor from './Cursor';
-
-import { MainHeader } from '../styles/containers';
+import { MainHeaderRights, DivButtonConvictions } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
 const ConvictionsRights = () => {
@@ -44,14 +45,15 @@ const ConvictionsRights = () => {
 
   return (
     <>
-      <MainHeader>
+      <MainHeaderRights>
         <SectionTitle>Droits fondamentaux</SectionTitle>
-      </MainHeader>
+      </MainHeaderRights>
       <Cursor
         titleCursor="Politique environementale"
         color="#92be1f"
         handleCursor={politEnvFunc}
         textCursor="la politique environementale cé bien"
+        colorCursor="#f4AA79"
       >
         Titre cursor
       </Cursor>
@@ -60,37 +62,46 @@ const ConvictionsRights = () => {
         color="#92be1f"
         handleCursor={emissionCo2Func}
         textCursor="Emission Co2 cé pa bien"
+        colorCursor="#f4AA79"
       />
       <Cursor
         titleCursor="Empreinte écologique"
         color="#92be1f"
         handleCursor={empreintEcoFunc}
         textCursor="Il faut limiter l'empreinte de l'activité humaine sur la planète"
+        colorCursor="#f4AA79"
       />
       <Cursor
         titleCursor="Proximité géographique"
         color="#92be1f"
         handleCursor={proximGeoFunc}
         textCursor="Il faut éviter de consommer des produits"
+        colorCursor="#f4AA79"
       />
       <Cursor
         titleCursor="Taux de nucléaire"
         color="#92be1f"
         handleCursor={tauxNucleaireFunc}
         textCursor="Il faut augmenter le taux du nucléaire dans la production d'énergie"
+        colorCursor="#f4AA79"
       />
       <Cursor
         titleCursor="Taux d'énergie renouvelable"
         color="#92be1f"
         handleCursor={tauxEnergRenouvFunc}
         textCursor="Il faut que l'énergie vienne de sources renouvelables"
+        colorCursor="#f4AA79"
       />
       <Cursor
         titleCursor="Sobriété énergétique"
         color="#92be1f"
         handleCursor={sobrEnergFunc}
         textCursor="Il faut limiter la consommation de toute façon"
+        colorCursor="#f4AA79"
       />
+      <DivButtonConvictions>
+        <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+      </DivButtonConvictions>
     </>
   );
 };
