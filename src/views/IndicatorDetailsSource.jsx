@@ -1,10 +1,15 @@
 import React from 'react';
 
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
+
 const IndicatorDetailsSource = () => {
   return (
-    <div>
-      <h2>Page de la Source d&apos;un indicateur</h2>
-    </div>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Rapport de source</SectionTitle>
+      </MainHeader>
+    </MainContainerWithHeader>
   );
 };
 

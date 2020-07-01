@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  a {
+    color: #f9f8f6;
+  }
 `;
 
 export default GlobalStyle;
