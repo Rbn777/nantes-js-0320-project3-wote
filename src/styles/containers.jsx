@@ -117,3 +117,138 @@ export const DivButtonConvictions = styled.div`
   color: ${(props) => props.theme.white};
   margin: 20px;
 `;
+
+export const CountryCard = styled.div`
+  background-color: ${(props) => props.theme.lightGrey};
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+`;
+
+export const WrapperCountryText = styled(FlexDiv)`
+  cursor: ${(props) => (props.noPointer ? 'unset' : 'pointer')};
+`;
+
+export const RoundNote = styled.div`
+  border-radius: 50px;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.red {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.green {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellow {
+    background-color: ${(props) => props.theme.yellow};
+  }
+`;
+
+export const DeleteCard = styled.button`
+  background-color: ${(props) => props.theme.darkGrey};
+  color: ${(props) => props.theme.white};
+  border-radius: 5px;
+  border: none;
+  width: 25px;
+  height: 25px;
+  margin-left: 15px;
+  align-self: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightGrey};
+    border: 1px solid ${(props) => props.theme.darkGrey};
+  }
+
+  &.noDisplay {
+    display: none;
+  }
+`;
+
+export const ContainerAccordions = styled(FlexDiv)`
+  margin: 2rem 0;
+`;
+
+export const WrapperAllAccordions = styled(FlexDiv)``;
+
+export const WrapperAccordion = styled(FlexDiv)`
+  margin-bottom: 1rem;
+`;
+
+export const WrapperCaretIconGrey = styled.div`
+  color: ${(props) => props.theme.darkGrey};
+  margin: 0rem 0.5rem;
+  padding-top: 0.2rem;
+  transform: rotate(0deg);
+  transition: all 100ms ease-in-out;
+
+  &.rotate {
+    transform: rotate(90deg);
+  }
+`;
+
+export const WrapperHeadAccordion = styled(FlexDiv)`
+  background-color: ${(props) => props.theme.lightGrey};
+  border-radius: 5px;
+  justify-content: space-between;
+
+  &.noBorderRadius {
+    border-radius: 5px 5px 0 0;
+  }
+`;
+
+export const WrapperTitleAccordion = styled(FlexDiv)`
+  align-self: center;
+`;
+
+export const NoteDetails = styled.div`
+  height: 100%;
+  padding: 0.8rem;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.red {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.green {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellow {
+    background-color: ${(props) => props.theme.yellow};
+  }
+`;
+
+export const DetailsIndicators = styled(DetailsIndicatorDiv)`
+  display: none;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 5px 5px;
+    padding: 0.5rem 1.2rem;
+    margin: 0;
+    background-color: ${(props) => props.theme.white};
+  }
+`;
+
+export const DetailItem = styled(FlexDiv)`
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
