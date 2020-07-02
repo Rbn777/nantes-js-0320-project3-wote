@@ -6,6 +6,7 @@ import {
   MainHeader,
   FlexDiv,
 } from '../styles/containers';
+import BurgerMenu from '../components/BurgerMenu';
 import { SectionTitle } from '../styles/texts';
 import IndicatorEcology from '../components/IndicatorEcology';
 import IndicatorRights from '../components/IndicatorRights';
@@ -60,6 +61,7 @@ const Indicators = () => {
       <MainHeader>
         <SectionTitle>Les indicateurs</SectionTitle>
       </MainHeader>
+      <BurgerMenu />
       <WrapperTab>
         <Tab
           onClick={() =>

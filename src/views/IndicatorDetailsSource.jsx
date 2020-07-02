@@ -1,5 +1,6 @@
 import React from 'react';
 
+import BurgerMenu from '../components/BurgerMenu';
 import { MainContainerWithHeader, MainHeader } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
@@ -9,6 +10,7 @@ const IndicatorDetailsSource = () => {
       <MainHeader>
         <SectionTitle>Rapport de source</SectionTitle>
       </MainHeader>
+      <BurgerMenu />
     </MainContainerWithHeader>
   );
 };

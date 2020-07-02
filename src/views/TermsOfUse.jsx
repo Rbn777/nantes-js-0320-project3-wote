@@ -1,4 +1,6 @@
 import React from 'react';
+
+import BurgerMenu from '../components/BurgerMenu';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 
@@ -8,6 +10,7 @@ const TermsOfUse = () => {
       <MainHeader>
         <SectionTitle>Conditions d&apos;utilisation</SectionTitle>
       </MainHeader>
+      <BurgerMenu />
       <TextParagraph>
         Données personnelles <br />
         <br />

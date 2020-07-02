@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import Cursor from './Cursor';
+
+import BurgerMenu from './BurgerMenu';
 import { MainHeaderSociety, DivButtonConvictions } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
@@ -48,6 +50,7 @@ const ConvictionsSociety = () => {
       <MainHeaderSociety>
         <SectionTitle>Société</SectionTitle>
       </MainHeaderSociety>
+      <BurgerMenu />
       <Cursor
         titleCursor="Politique environementale"
         color="#92be1f"

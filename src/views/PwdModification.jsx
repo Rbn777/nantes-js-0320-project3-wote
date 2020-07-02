@@ -4,13 +4,17 @@ import BurgerMenu from '../components/BurgerMenu';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
-import MainheaderComp from '../components/MainHeader';
-import { MainContainerWithHeader } from '../styles/containers';
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
 
 const PwdModification = () => {
   return (
     <MainContainerWithHeader>
-      <MainheaderComp title="Modification du mot de passe" />
+      <MainContainerWithHeader>
+        <MainHeader>
+          <SectionTitle>Modifier le mot de passe</SectionTitle>
+        </MainHeader>
+      </MainContainerWithHeader>
       <BurgerMenu />
       <FormCpnt>
         <InputCpnt
