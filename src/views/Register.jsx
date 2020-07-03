@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,20 +8,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
-import { FlexDiv } from '../styles/containers';
-
-const RegisterContainer = styled(FlexDiv)`
-  height: 100vh;
-  justify-content: end;
-  background-color: ${(props) => props.theme.darkGrey};
-  padding: 4rem 1rem;
-`;
+import { MainHeader, MainContainerWithHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [termsOfUseCheck, setTermsOfUseCheck] = useState(false);
+  const [isPasswordOk, setIsPasswordOk] = useState(false);
+
+  const checkPasswordStandard = (pass) =>
+    pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -30,6 +27,7 @@ const Register = (props) => {
 
   const handleNewPassword = (e) => {
     setPassword(e.target.value);
+    checkPasswordStandard(e.target.value);
   };
 
   const handleConfirmPassword = (e) => {
@@ -52,6 +50,11 @@ const Register = (props) => {
         draggable: true,
         progress: undefined,
       });
+    } else if (!isPasswordOk) {
+      toast.error(
+        'Le mot de passe doit comporter 8 caractères au minimum...',
+        {}
+      );
     } else if (password !== passwordCheck) {
       toast.error('Les mots de passe doivent correspondre', {});
     } else if (!termsOfUseCheck) {
@@ -76,7 +79,10 @@ const Register = (props) => {
   };
 
   return (
-    <RegisterContainer column>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Enregistrement</SectionTitle>
+      </MainHeader>
       <FormCpnt submitFuncToPass={handleSubmit}>
         <InputCpnt
           labelText="Email"
@@ -136,7 +142,7 @@ const Register = (props) => {
         draggable
         pauseOnHover
       />
-    </RegisterContainer>
+    </MainContainerWithHeader>
   );
 };
 

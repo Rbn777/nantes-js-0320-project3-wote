@@ -8,9 +8,9 @@ const ButtonStyled = styled.button`
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: ${(props) => props.greenBg && props.theme.lightGreen};
+  background-color: ${(props) => props.greenBg && props.theme.mainGreen};
   background-color: ${(props) => props.salmonBg && props.theme.salmon};
-  background-color: ${(props) => props.lightBlue && props.theme.lightBlue};
+  background-color: ${(props) => props.blueBg && props.theme.mainBlue};
   &:hover {
     color: white;
   }
@@ -21,7 +21,7 @@ const Button = ({
   buttonType,
   greenBg,
   salmonBg,
-  lightBlue,
+  blueBg,
   disabled,
 }) => {
   return (
@@ -29,7 +29,7 @@ const Button = ({
       type={buttonType}
       greenBg={greenBg}
       salmonBg={salmonBg}
-      lightBlue={lightBlue}
+      blueBg={blueBg}
       disabled={disabled}
     >
       {children}
@@ -41,7 +41,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   greenBg: PropTypes.string.isRequired,
   salmonBg: PropTypes.string.isRequired,
-  lightBlue: PropTypes.string.isRequired,
+  blueBg: PropTypes.string.isRequired,
   buttonType: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
 };

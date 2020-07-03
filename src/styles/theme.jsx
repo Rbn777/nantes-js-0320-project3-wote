@@ -33,13 +33,15 @@ const mediaMin = Object.keys(sizes).reduce((acc, label) => {
 
 export default {
   // Colors.
-  grey: '#707070',
-  lightGrey: '#F2F0ED',
-  darkGrey: '#2c2c2c',
+  lightGrey: '#b0afaf',
+  darkGrey: '#6d6b6c',
   white: '#f9f8f6',
-  lightGreen: '#6bed5c',
-  salmon: '#FF9C71',
-  lightBlue: '#A0C1B8',
+  mainGreen: '#92be1f',
+  salmon: '#f4AA79',
+  mainBlue: '#94b5be',
+  red: '#d32626',
+  green: '#79d70f',
+  yellow: '#f5a31a',
   // Fonts.
   fontWeightNormal: 500,
   fontWeightBold: 900,

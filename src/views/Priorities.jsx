@@ -1,10 +1,17 @@
 import React from 'react';
 
+import BurgerMenu from '../components/BurgerMenu';
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
+
 const Priorities = () => {
   return (
-    <div>
-      <h2>Page Priorities</h2>
-    </div>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Mes priorités</SectionTitle>
+      </MainHeader>
+      <BurgerMenu />
+    </MainContainerWithHeader>
   );
 };
 

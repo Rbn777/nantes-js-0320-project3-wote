@@ -1,10 +1,17 @@
 import React from 'react';
 
+import BurgerMenu from '../components/BurgerMenu';
+import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import { SectionTitle } from '../styles/texts';
+
 const AddProductManually = () => {
   return (
-    <div>
-      <h2>Page d&apos;ajout de Produit Manuellement</h2>
-    </div>
+    <MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Ajouter un produit</SectionTitle>
+      </MainHeader>
+      <BurgerMenu />
+    </MainContainerWithHeader>
   );
 };
 
