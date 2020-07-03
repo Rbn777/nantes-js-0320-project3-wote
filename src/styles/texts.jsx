@@ -12,7 +12,7 @@ export const SectionTitle = styled.h2`
   text-align: center;
   padding: 10px;
   font-family: 'MuseoBold';
-  width: 50%;
+  width: 70%;
   align-self: center;
   color: white;
 `;
@@ -31,8 +31,13 @@ export const TitleIndicator = styled.h3`
   text-align: left;
   font-family: 'MuseoBold';
   font-weight: ${(props) => props.theme.fontWeightBold};
+  color: ${(props) => props.theme.white};
 `;
 
 export const DivCursorTitle = styled.h3`
   font-family: 'MuseoBold';
+`;
+
+export const TitleComparison = styled(TitleIndicator)`
+  padding-left: 0rem;
 `;

@@ -117,3 +117,55 @@ export const DivButtonConvictions = styled.div`
   color: ${(props) => props.theme.white};
   margin: 20px;
 `;
+
+export const CountryCard = styled.div`
+  background-color: ${(props) => props.theme.lightGrey};
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+`;
+
+export const WrapperCountryText = styled(FlexDiv)`
+  cursor: pointer;
+`;
+
+export const RoundNote = styled.div`
+  border-radius: 50px;
+  width: 80px;
+  height: 40px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.red {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.green {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellow {
+    background-color: ${(props) => props.theme.yellow};
+  }
+`;
+
+export const DeleteCard = styled.button`
+  background-color: ${(props) => props.theme.darkGrey};
+  color: ${(props) => props.theme.white};
+  border-radius: 5px;
+  border: none;
+  width: 25px;
+  height: 25px;
+  align-self: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightGrey};
+    border: 1px solid ${(props) => props.theme.darkGrey};
+  }
+`;
