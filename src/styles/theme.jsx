@@ -39,6 +39,9 @@ export default {
   mainGreen: '#92be1f',
   salmon: '#f4AA79',
   mainBlue: '#94b5be',
+  red: '#d32626',
+  green: '#79d70f',
+  yellow: '#f5a31a',
   // Fonts.
   fontWeightNormal: 500,
   fontWeightBold: 900,
