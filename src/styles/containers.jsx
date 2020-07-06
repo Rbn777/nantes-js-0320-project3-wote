@@ -123,6 +123,7 @@ export const CountryCard = styled.div`
   background-color: ${(props) => props.theme.lightGrey};
   border-radius: 10px;
   width: 100%;
+  margin: 20px 0px 20px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -137,6 +138,7 @@ export const RoundNote = styled.div`
   border-radius: 50px;
   width: 80px;
   height: 40px;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,7 +171,6 @@ export const DeleteCard = styled.button`
     background-color: ${(props) => props.theme.lightGrey};
     border: 1px solid ${(props) => props.theme.darkGrey};
   }
-
   &.noDisplay {
     display: none;
   }
