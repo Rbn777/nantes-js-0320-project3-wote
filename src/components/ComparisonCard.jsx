@@ -10,7 +10,14 @@ import {
 } from '../styles/containers';
 import { TitleComparison, TextParagraph } from '../styles/texts';
 
-const ComparisonCard = ({ name, note, colorBg, noButton, noPointer }) => {
+const ComparisonCard = ({
+  name,
+  note,
+  colorBg,
+  noButton,
+  noPointer,
+  removeCountry,
+}) => {
   return (
     <CountryCard>
       <WrapperCountryText column noPointer={noPointer}>
@@ -21,7 +28,9 @@ const ComparisonCard = ({ name, note, colorBg, noButton, noPointer }) => {
         <RoundNote className={colorBg}>
           <TextParagraph>{note}/100</TextParagraph>
         </RoundNote>
-        <DeleteCard className={noButton} onClick={removeCountry}>x</DeleteCard>
+        <DeleteCard className={noButton} onClick={removeCountry}>
+          x
+        </DeleteCard>
       </FlexDiv>
     </CountryCard>
   );
