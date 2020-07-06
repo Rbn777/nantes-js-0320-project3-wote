@@ -10,12 +10,12 @@ import {
 } from '../styles/containers';
 import { TitleComparison, TextParagraph } from '../styles/texts';
 
-const ComparisonCard = ({ country, note, colorBg, removeCountry }) => {
+const ComparisonCard = ({ name, note, colorBg, removeCountry }) => {
   return (
     <CountryCard>
       <WrapperCountryText column>
         <TextParagraph>Made in</TextParagraph>
-        <TitleComparison>{country}</TitleComparison>
+        <TitleComparison>{name}</TitleComparison>
       </WrapperCountryText>
       <FlexDiv>
         <RoundNote className={colorBg}>
@@ -30,7 +30,7 @@ const ComparisonCard = ({ country, note, colorBg, removeCountry }) => {
 export default ComparisonCard;
 
 ComparisonCard.propTypes = {
-  country: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   note: PropTypes.string.isRequired,
   colorBg: PropTypes.string.isRequired,
   removeCountry: PropTypes.func.isRequired,

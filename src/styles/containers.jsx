@@ -122,6 +122,7 @@ export const CountryCard = styled.div`
   background-color: ${(props) => props.theme.lightGrey};
   border-radius: 10px;
   width: 100%;
+  margin: 20px 0px 20px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
