@@ -67,4 +67,5 @@ export const NoteColor = styled.p`
 
 export const DetailIndicatorTitle = styled.p`
   color: ${(props) => props.theme.darkGrey};
+  text-align: ${(props) => props.start && 'start'};
 `;
