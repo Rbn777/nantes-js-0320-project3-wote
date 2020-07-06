@@ -10,18 +10,18 @@ import {
 } from '../styles/containers';
 import { TitleComparison, TextParagraph } from '../styles/texts';
 
-const ComparisonCard = ({ name, note, colorBg, removeCountry }) => {
+const ComparisonCard = ({ name, note, colorBg, noButton, noPointer }) => {
   return (
     <CountryCard>
-      <WrapperCountryText column>
-        <TextParagraph>Made in</TextParagraph>
-        <TitleComparison>{name}</TitleComparison>
+      <WrapperCountryText column noPointer={noPointer}>
+        <TextParagraph grey>Made in</TextParagraph>
+        <TitleComparison grey>{name}</TitleComparison>
       </WrapperCountryText>
       <FlexDiv>
         <RoundNote className={colorBg}>
           <TextParagraph>{note}/100</TextParagraph>
         </RoundNote>
-        <DeleteCard onClick={removeCountry}>x</DeleteCard>
+        <DeleteCard className={noButton} onClick={removeCountry}>x</DeleteCard>
       </FlexDiv>
     </CountryCard>
   );
@@ -31,7 +31,9 @@ export default ComparisonCard;
 
 ComparisonCard.propTypes = {
   name: PropTypes.string.isRequired,
+  removeCountry: PropTypes.func.isRequired,
   note: PropTypes.string.isRequired,
   colorBg: PropTypes.string.isRequired,
-  removeCountry: PropTypes.func.isRequired,
+  noButton: PropTypes.string.isRequired,
+  noPointer: PropTypes.string.isRequired,
 };

@@ -9,6 +9,7 @@ import MadeInComparisons from '../views/MadeInComparisons';
 import Priorities from '../views/Priorities';
 import Convictions from '../views/Convictions';
 import MadeInDetails from '../views/MadeInDetails';
+import DetailedComparison from '../views/DetailedComparison';
 import AllMadeInComparisons from '../views/AllMadeInComparisons';
 import Indicators from '../views/Indicators';
 import IndicatorDetails from '../views/IndicatorDetails';
@@ -34,6 +35,7 @@ const ProjectRouter = () => {
           component={Convictions}
         />
         <Route path="/made-in-details" component={MadeInDetails} />
+        <Route path="/detailed-comparison" component={DetailedComparison} />
         <Route path="/indicator-details" component={IndicatorDetails} />
         <Route
           path="/indicator-details/source"

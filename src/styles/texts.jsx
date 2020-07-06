@@ -23,6 +23,7 @@ export const H2 = styled.h2`
 
 export const TextParagraph = styled.p`
   color: ${(props) => props.theme.white};
+  color: ${(props) => props.grey && props.theme.darkGrey};
   text-align: left;
 `;
 
@@ -32,6 +33,7 @@ export const TitleIndicator = styled.h3`
   font-family: 'MuseoBold';
   font-weight: ${(props) => props.theme.fontWeightBold};
   color: ${(props) => props.theme.white};
+  color: ${(props) => props.grey && props.theme.darkGrey};
 `;
 
 export const DivCursorTitle = styled.h3`
@@ -40,4 +42,30 @@ export const DivCursorTitle = styled.h3`
 
 export const TitleComparison = styled(TitleIndicator)`
   padding-left: 0rem;
+`;
+
+export const TitleIndicatorDetail = styled(TitleIndicator)`
+  color: ${(props) => props.theme.darkGrey};
+  padding-left: 0.2rem;
+`;
+
+export const NoteColor = styled.p`
+  font-size: 1.2rem;
+
+  &.redNote {
+    color: ${(props) => props.theme.red};
+  }
+
+  &.greenNote {
+    color: ${(props) => props.theme.green};
+  }
+
+  &.yellowNote {
+    color: ${(props) => props.theme.yellow};
+  }
+`;
+
+export const DetailIndicatorTitle = styled.p`
+  color: ${(props) => props.theme.darkGrey};
+  text-align: ${(props) => props.start && 'start'};
 `;

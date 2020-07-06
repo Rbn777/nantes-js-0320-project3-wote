@@ -13,6 +13,7 @@ export const FlexDiv = styled.div`
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   justify-content: ${(props) => props.between && 'space-between'};
   cursor: ${(props) => props.pointer && 'pointer'};
+  margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
 `;
 
 export const FlexAlignSelfEnd = styled.div`
@@ -130,7 +131,7 @@ export const CountryCard = styled.div`
 `;
 
 export const WrapperCountryText = styled(FlexDiv)`
-  cursor: pointer;
+  cursor: ${(props) => (props.noPointer ? 'unset' : 'pointer')};
 `;
 
 export const RoundNote = styled.div`
@@ -162,11 +163,161 @@ export const DeleteCard = styled.button`
   border: none;
   width: 25px;
   height: 25px;
+  margin-left: 15px;
   align-self: center;
   cursor: pointer;
 
   &:hover {
     background-color: ${(props) => props.theme.lightGrey};
     border: 1px solid ${(props) => props.theme.darkGrey};
+  }
+  &.noDisplay {
+    display: none;
+  }
+`;
+
+export const ContainerAccordions = styled(FlexDiv)`
+  margin: 2rem 0;
+`;
+
+export const WrapperAllAccordions = styled(FlexDiv)``;
+
+export const WrapperAccordion = styled(FlexDiv)`
+  margin-bottom: 1rem;
+`;
+
+export const WrapperCaretIconGrey = styled.div`
+  color: ${(props) => props.theme.darkGrey};
+  margin: 0rem 0.5rem;
+  padding-top: 0.2rem;
+  transform: rotate(0deg);
+  transition: all 100ms ease-in-out;
+
+  &.rotate {
+    transform: rotate(90deg);
+  }
+`;
+
+export const WrapperHeadAccordion = styled(FlexDiv)`
+  background-color: ${(props) => props.theme.lightGrey};
+  border-radius: ${(props) => (props.topOnly ? '5px 5px 0 0' : '5px')};
+  justify-content: space-between;
+  padding: ${(props) => props.padDetailed && '0.5rem'};
+
+  &.noBorderRadius {
+    border-radius: 5px 5px 0 0;
+  }
+`;
+
+export const WrapperTitleAccordion = styled(FlexDiv)`
+  align-self: center;
+`;
+
+export const NoteDetails = styled.div`
+  height: 100%;
+  padding: 0.8rem;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.red {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.green {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellow {
+    background-color: ${(props) => props.theme.yellow};
+  }
+`;
+
+export const DetailsIndicators = styled(DetailsIndicatorDiv)`
+  display: none;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 5px 5px;
+    padding: 0.5rem 1.2rem;
+    margin: 0;
+    background-color: ${(props) => props.theme.white};
+  }
+`;
+
+export const DetailItem = styled(FlexDiv)`
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const FlexDivDetailedComp = styled(FlexDiv)`
+  margin: 0.2rem 0;
+`;
+
+export const FlexDivAccordionDetailed = styled(FlexDiv)`
+  width: ${(props) => props.all && '100%'};
+  margin-bottom: 1rem;
+`;
+
+export const DetailedDiv = styled.div`
+  text-align: center;
+  padding: 0.5rem;
+  border-right: ${(props) =>
+    props.borderRight ? `1px solid ${props.theme.darkGrey}` : 'none'};
+  background-color: ${(props) =>
+    props.white ? props.theme.white : props.theme.lightGrey};
+
+  &:last-child {
+    border-right: none;
+  }
+`;
+
+export const DetailedDivSpec = styled(DetailedDiv)`
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+`;
+
+export const DetailedNoteCountry = styled(DetailedDiv)`
+  display: flex;
+  justify-content: center;
+`;
+
+export const NoteDiv = styled.div`
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.darkGrey};
+  font-weight: bold;
+`;
+
+export const NoteDivColor = styled.div`
+  width: 50%;
+  padding: 0.2em;
+  border-radius: 5px;
+  color: ${(props) => props.theme.white};
+
+  &.redDiv {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.greenDiv {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellowDiv {
+    background-color: ${(props) => props.theme.yellow};
+  }
+
+  &.greyDiv {
+    background-color: ${(props) => props.theme.darkGrey};
   }
 `;
