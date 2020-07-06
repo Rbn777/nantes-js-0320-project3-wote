@@ -1,16 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+import Cursor from '../components/Cursor';
 import BurgerMenu from '../components/BurgerMenu';
-import { MainContainerWithHeader, MainHeader } from '../styles/containers';
+import {
+  MainContainerWithHeader,
+  MainHeader,
+  FlexDiv,
+  GridDiv,
+} from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
+import Button from '../components/Button';
+
+const HeightGridDiv = styled(GridDiv)`
+  height: 75vh;
+`;
 
 const Priorities = () => {
+  const [rateEcology, setRateEcology] = useState(0);
+  const [rateRights, setRateRights] = useState(0);
+  const [rateSociety, setRateSociety] = useState(0);
+
+  const handleEcology = (e, newValue) => {
+    setRateEcology(newValue);
+  };
+  const handleRights = (e, newValue) => {
+    setRateRights(newValue);
+  };
+  const handleSociety = (e, newValue) => {
+    setRateSociety(newValue);
+  };
+
   return (
     <MainContainerWithHeader>
       <MainHeader>
         <SectionTitle>Mes priorités</SectionTitle>
       </MainHeader>
       <BurgerMenu />
+      <HeightGridDiv spaceEvly templateCol="80%" jstfyContent="center">
+        <FlexDiv column>
+          <Cursor
+            colorCursor="#92be1f"
+            handleCursor={handleEcology}
+            value={rateEcology}
+            titleCursor="Ecologie"
+          />
+          <FlexDiv center>
+            <Link to="/profil/priorities/convictions/ecology">
+              <Button greenBg>Écologie</Button>
+            </Link>
+          </FlexDiv>
+        </FlexDiv>
+
+        <FlexDiv column>
+          <Cursor
+            colorCursor="#f4AA79"
+            handleCursor={handleRights}
+            value={rateRights}
+            titleCursor="Droits fondamentaux"
+          />
+          <FlexDiv center>
+            <Link to="/profil/priorities/convictions/rights">
+              <Button salmonBg>Droits fondamentaux</Button>
+            </Link>
+          </FlexDiv>
+        </FlexDiv>
+
+        <FlexDiv column>
+          <Cursor
+            colorCursor="#94b5be"
+            handleCursor={handleSociety}
+            value={rateSociety}
+            titleCursor="Société"
+          />
+          <FlexDiv center>
+            <Link to="/profil/priorities/convictions/society">
+              <Button blueBg>Société</Button>
+            </Link>
+          </FlexDiv>
+        </FlexDiv>
+      </HeightGridDiv>
     </MainContainerWithHeader>
   );
 };
