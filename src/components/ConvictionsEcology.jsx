@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
-import Cursor from './Cursor';
+import Selector from './Selector';
 
 import BurgerMenu from './BurgerMenu';
 import { MainHeaderEcology, DivButtonConvictions } from '../styles/containers';
@@ -51,56 +51,47 @@ const ConvictionsEcology = () => {
         <SectionTitle>Ecologie</SectionTitle>
       </MainHeaderEcology>
       <BurgerMenu />
-      <Cursor
-        titleCursor="Politique environementale"
+      <Selector
+        titleSelect="Politique environementale"
         color="#92be1f"
-        handleCursor={politEnvFunc}
-        textCursor="la politique environementale cé bien"
-        colorCursor="#92be1f"
-      >
-        Titre cursor
-      </Cursor>
-      <Cursor
-        titleCursor="Emission CO2"
-        color="#92be1f"
-        handleCursor={emissionCo2Func}
-        textCursor="Emission Co2 cé pa bien"
-        colorCursor="#92be1f"
+        textSelect="la politique environementale lorem ipsum dolor..."
+        colorSelect="#92be1f"
       />
-      <Cursor
-        titleCursor="Empreinte écologique"
+      <Selector
+        titleSelect="Emission CO2"
         color="#92be1f"
-        handleCursor={empreintEcoFunc}
-        textCursor="Il faut limiter l'empreinte de l'activité humaine sur la planète"
-        colorCursor="#92be1f"
+        textSelect="Emission Co2 lorem dolor..."
+        colorSelect="#92be1f"
       />
-      <Cursor
-        titleCursor="Proximité géographique"
+      <Selector
+        titleSelect="Empreinte écologique"
         color="#92be1f"
-        handleCursor={proximGeoFunc}
-        textCursor="Il faut éviter de consommer des produits"
-        colorCursor="#92be1f"
+        textSelect="Il faut limiter l'empreinte de l'activité humaine sur la planète"
+        colorSelect="#92be1f"
       />
-      <Cursor
-        titleCursor="Taux de nucléaire"
+      <Selector
+        titleSelect="Proximité géographique"
         color="#92be1f"
-        handleCursor={tauxNucleaireFunc}
-        textCursor="Il faut augmenter le taux du nucléaire dans la production d'énergie"
-        colorCursor="#92be1f"
+        textSelect="Il faut éviter de consommer des produits"
+        colorSelect="#92be1f"
       />
-      <Cursor
-        titleCursor="Taux d'énergie renouvelable"
+      <Selector
+        titleSelect="Taux de nucléaire"
         color="#92be1f"
-        handleCursor={tauxEnergRenouvFunc}
-        textCursor="Il faut que l'énergie vienne de sources renouvelables"
-        colorCursor="#92be1f"
+        textSelect="Il faut augmenter le taux du nucléaire dans la production d'énergie"
+        colorSelect="#92be1f"
       />
-      <Cursor
-        titleCursor="Sobriété énergétique"
+      <Selector
+        titleSelect="Taux d'énergie renouvelable"
         color="#92be1f"
-        handleCursor={sobrEnergFunc}
-        textCursor="Il faut limiter la consommation de toute façon"
-        colorCursor="#92be1f"
+        textSelect="Il faut que l'énergie vienne de sources renouvelables"
+        colorSelect="#92be1f"
+      />
+      <Selector
+        titleSelect="Sobriété énergétique"
+        color="#92be1f"
+        textSelect="Il faut limiter la consommation de toute façon"
+        colorSelect="#92be1f"
       />
       <DivButtonConvictions>
         <FontAwesomeIcon icon={faCheckCircle} size="2x" />
