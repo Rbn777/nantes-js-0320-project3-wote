@@ -84,8 +84,10 @@ export const WrapperIndicator = styled(FlexDiv)`
   border-bottom: 1px solid var(--border-color);
 `;
 
-export const WrapperCaretIconGreen = styled.div`
-  color: ${(props) => props.theme.mainGreen};
+export const WrapperCaretIcon = styled.div`
+  color: ${(props) => props.greenIcon && props.theme.mainGreen};
+  color: ${(props) => props.salmonIcon && props.theme.salmon};
+  color: ${(props) => props.blueIcon && props.theme.mainBlue};
   transform: rotate(0deg);
   transition: all 100ms ease-in-out;
 
@@ -94,25 +96,25 @@ export const WrapperCaretIconGreen = styled.div`
   }
 `;
 
-export const WrapperCaretIconSalmon = styled.div`
-  color: ${(props) => props.theme.salmon};
-  transform: rotate(0deg);
-  transition: all 100ms ease-in-out;
+// export const WrapperCaretIconSalmon = styled.div`
+//   color: ${(props) => props.theme.salmon};
+//   transform: rotate(0deg);
+//   transition: all 100ms ease-in-out;
 
-  &.rotate {
-    transform: rotate(90deg);
-  }
-`;
+//   &.rotate {
+//     transform: rotate(90deg);
+//   }
+// `;
 
-export const WrapperCaretIconBlue = styled.div`
-  color: ${(props) => props.theme.mainBlue};
-  transform: rotate(0deg);
-  transition: all 100ms ease-in-out;
+// export const WrapperCaretIconBlue = styled.div`
+//   color: ${(props) => props.theme.mainBlue};
+//   transform: rotate(0deg);
+//   transition: all 100ms ease-in-out;
 
-  &.rotate {
-    transform: rotate(90deg);
-  }
-`;
+//   &.rotate {
+//     transform: rotate(90deg);
+//   }
+// `;
 
 export const DetailsIndicatorDiv = styled.div`
   margin-top: 0.5rem;
