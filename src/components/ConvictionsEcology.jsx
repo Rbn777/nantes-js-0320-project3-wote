@@ -52,9 +52,9 @@ const ConvictionsEcology = () => {
       </MainHeaderEcology>
       <BurgerMenu />
       <Selector
-        titleSelect="Politique environementale"
+        titleSelect="Politique environnementale"
         color="#92be1f"
-        textSelect="la politique environementale lorem ipsum dolor..."
+        textSelect="la politique environnementale lorem ipsum dolor..."
         colorSelect="#92be1f"
       />
       <Selector
