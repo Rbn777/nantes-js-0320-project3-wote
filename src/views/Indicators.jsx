@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import styled from 'styled-components';
 
 import {
@@ -6,11 +7,9 @@ import {
   MainHeader,
   FlexDiv,
 } from '../styles/containers';
-import BurgerMenu from '../components/BurgerMenu';
 import { SectionTitle } from '../styles/texts';
-import IndicatorEcology from '../components/IndicatorEcology';
-import IndicatorRights from '../components/IndicatorRights';
-import IndicatorSociety from '../components/IndicatorSociety';
+import BurgerMenu from '../components/BurgerMenu';
+import IndicatorsCpnt from '../components/IndicatorsCpnt';
 
 const Tab = styled.div`
   padding: 0.4rem;
@@ -39,22 +38,52 @@ const WrapperTab = styled(FlexDiv)`
 `;
 
 const Indicators = () => {
-  const [activeEco, setActiveEco] = useState(true);
-  const [activeDroits, setActiveDroits] = useState(false);
-  const [activeSoc, setActiveSoc] = useState(false);
+  const [themes, setThemes] = useState([]);
+  const [criterias, setCriterias] = useState([]);
+  const [active, setActive] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const handleClick = (
-    funcToSetActive,
-    varToSetActive,
-    funcToSetFalseOne,
-    funcToSetFalseTwo
-  ) => {
-    if (!varToSetActive) {
-      funcToSetActive(!varToSetActive);
-      funcToSetFalseOne(false);
-      funcToSetFalseTwo(false);
-    }
+  useEffect(() => {
+    const getThemes = async () => {
+      try {
+        const { data } = await Axios.get(`https://wote.website/api/themes`, {
+          headers: { Accept: 'application/json' },
+        });
+        const colors = {
+          1: 'green',
+          2: 'salmon',
+          3: 'blue',
+        };
+        const coloredDatas = data.map((theme) => {
+          return {
+            ...theme,
+            color: colors[theme.id],
+          };
+        });
+        setThemes(coloredDatas);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getThemes();
+  }, []);
+
+  const chooseTab = (id) => {
+    const { criteria } = themes.find((t) => t.id === id);
+    setActive(id);
+    setCriterias(criteria);
   };
+
+  if (isLoading) {
+    return <div>Super loader...</div>;
+  }
+
+  if (error) {
+    return <div>Error !</div>;
+  }
 
   return (
     <MainContainerWithHeader>
@@ -63,40 +92,19 @@ const Indicators = () => {
       </MainHeader>
       <BurgerMenu />
       <WrapperTab>
-        <Tab
-          onClick={() =>
-            handleClick(setActiveEco, activeEco, setActiveDroits, setActiveSoc)
-          }
-          className={activeEco && 'green'}
-        >
-          Ecologie
-        </Tab>
-        <Tab
-          onClick={() =>
-            handleClick(
-              setActiveDroits,
-              activeDroits,
-              setActiveEco,
-              setActiveSoc
-            )
-          }
-          className={activeDroits && 'salmon'}
-        >
-          Droits fondamentaux
-        </Tab>
-        <Tab
-          onClick={() =>
-            handleClick(setActiveSoc, activeSoc, setActiveEco, setActiveDroits)
-          }
-          className={activeSoc && 'blue'}
-        >
-          Société
-        </Tab>
+        {themes.map((t) => {
+          return (
+            <Tab
+              onClick={() => chooseTab(t.id)}
+              className={t.id === active && t.color}
+              key={t.id}
+            >
+              {t.title}
+            </Tab>
+          );
+        })}
       </WrapperTab>
-
-      {activeEco && <IndicatorEcology />}
-      {activeDroits && <IndicatorRights />}
-      {activeSoc && <IndicatorSociety />}
+      <IndicatorsCpnt criteria={criterias} />
     </MainContainerWithHeader>
   );
 };
