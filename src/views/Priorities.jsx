@@ -10,11 +10,15 @@ import {
   FlexDiv,
   GridDiv,
 } from '../styles/containers';
-import { SectionTitle } from '../styles/texts';
+import { SectionTitle, TextParagraph } from '../styles/texts';
 import Button from '../components/Button';
 
 const HeightGridDiv = styled(GridDiv)`
   height: 75vh;
+`;
+
+const TextParagraphCenter = styled(TextParagraph)`
+  text-align: center;
 `;
 
 const Priorities = () => {
@@ -49,6 +53,9 @@ const Priorities = () => {
       </MainHeader>
       <BurgerMenu />
       <HeightGridDiv spaceEvly templateCol="80%" jstfyContent="center">
+        <TextParagraphCenter>
+          Répartissez vos priorités sur 100...
+        </TextParagraphCenter>
         <FlexDiv column>
           <Cursor
             colorCursor="#92be1f"
