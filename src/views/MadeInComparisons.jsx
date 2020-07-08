@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-// import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
-import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
 import BurgerMenu from '../components/BurgerMenu';
 import ComparisonCard from '../components/ComparisonCard';
@@ -13,33 +14,18 @@ import {
   FlexDiv,
 } from '../styles/containers';
 
-const CountryList = [
-  {
-    id: 1,
-    name: 'Espagne',
-  },
-  {
-    id: 2,
-    name: 'France',
-  },
-  {
-    id: 3,
-    name: 'Allemagne',
-  },
-];
-
 const MadeInComparisons = () => {
-  const [countries, setCountry] = useState(CountryList);
-  const [newValue, setNewValue] = useState();
-
-  const handleChange = (e) => {
-    setNewValue(e.target.value);
-  };
+  const [allCountries, setAllCountries] = useState([]);
+  const [countries, setCountry] = useState([]);
+  const [value, setValue] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const addCountry = () => {
     const newCountry = countries.concat({
-      name: newValue,
-      id: countries.length + 1,
+      id: value.id,
+      name: value.name,
+      score: Math.round(value.score),
     });
 
     setCountry(newCountry);
@@ -51,6 +37,36 @@ const MadeInComparisons = () => {
     setCountry(newCountries);
   };
 
+  const removeAllCountries = () => {
+    const emptyCountries = [];
+
+    setCountry(emptyCountries);
+  };
+
+  useEffect(() => {
+    const getCountries = async () => {
+      try {
+        const { data } = await Axios.get(`https://wote.website/api/countries`, {
+          headers: { Accept: 'application/json' },
+        });
+        setAllCountries(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getCountries();
+  }, []);
+
+  if (isLoading) {
+    return <div>Super loader...</div>;
+  }
+
+  if (error) {
+    return <div>Error !</div>;
+  }
+
   return (
     <MainContainerWithHeader>
       <MainHeader>
@@ -58,25 +74,42 @@ const MadeInComparisons = () => {
       </MainHeader>
       <BurgerMenu />
       <FlexDiv>
-        <InputCpnt
-          inputType="text"
-          nameForInput="userLogin"
-          inputPlaceHolder="Rechercher un pays"
-          onChangeFunc={handleChange}
-          value={newValue}
+        <Autocomplete
+          value={value}
+          onChange={(event, newCountry) => {
+            setValue(newCountry);
+          }}
+          id="combo-box-demo"
+          options={allCountries}
+          getOptionLabel={(option) => option.name}
+          style={{ width: 300 }}
+          renderInput={(params) => (
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            <TextField {...params} label="Search" variant="outlined" />
+          )}
         />
-        <Button functionToClick={addCountry}>Rechercher</Button>
+        <Button withBorder minSize functionToClick={addCountry}>
+          +
+        </Button>
       </FlexDiv>
       {countries.map((country) => (
         <ComparisonCard
           key={country.id}
           name={country.name}
+          note={country.score}
           removeCountry={() => removeCountry(country.id)}
         />
       ))}
-      <Button withBorder greyBg>
-        Comparaison détaillée
-      </Button>
+      <FlexDiv mgTop between>
+        <Button withBorder minSize functionToClick={removeAllCountries}>
+          Vider la liste
+        </Button>
+        <Link to="/detailed-comparison">
+          <Button withBorder minSize>
+            Comparaison détaillée
+          </Button>
+        </Link>
+      </FlexDiv>
     </MainContainerWithHeader>
   );
 };

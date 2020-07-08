@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ButtonStyled = styled.button`
   font-family: 'MuseoNormal';
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.minSize ? '0.9rem' : '1.2rem')};
   padding: 10px;
   border-radius: 5px;
   border: ${(props) =>
@@ -26,6 +26,7 @@ const Button = ({
   blueBg,
   disabled,
   greyBg,
+  minSize,
   withBorder,
   functionToClick,
 }) => {
@@ -35,8 +36,9 @@ const Button = ({
       greenBg={greenBg}
       salmonBg={salmonBg}
       blueBg={blueBg}
+      greyBg={greyBg}
       disabled={disabled}
-      bgNone={greyBg}
+      minSize={minSize}
       withBorder={withBorder}
       onClick={functionToClick}
     >
@@ -50,10 +52,11 @@ Button.propTypes = {
   greenBg: PropTypes.string.isRequired,
   salmonBg: PropTypes.string.isRequired,
   blueBg: PropTypes.string.isRequired,
+  greyBg: PropTypes.string.isRequired,
   buttonType: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  greyBg: PropTypes.string.isRequired,
   withBorder: PropTypes.string.isRequired,
+  minSize: PropTypes.string.isRequired,
   functionToClick: PropTypes.func.isRequired,
 };
 

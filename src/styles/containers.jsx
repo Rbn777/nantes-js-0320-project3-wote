@@ -14,6 +14,7 @@ export const FlexDiv = styled.div`
   justify-content: ${(props) => props.between && 'space-between'};
   cursor: ${(props) => props.pointer && 'pointer'};
   margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
+  margin-top: ${(props) => props.mgTop && '1rem'};
 `;
 
 export const FlexAlignSelfEnd = styled.div`
