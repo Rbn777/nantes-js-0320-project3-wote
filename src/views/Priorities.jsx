@@ -21,11 +21,11 @@ const Priorities = () => {
   const [rateEcology, setRateEcology] = useState(0);
   const [rateRights, setRateRights] = useState(0);
   const [rateSociety, setRateSociety] = useState(0);
-  /* const [sumTemp, setSumTemp] = useState(0); */
+  const [sumTemp, setSumTemp] = useState(0);
 
   const checkPercents = (thisValue, otherValue1, otherValue2) => {
     const thisValueMax = 100 - (otherValue1 + otherValue2);
-    /* setSumTemp(100 - (otherValue1 + otherValue2)); */
+    setSumTemp(sumTemp - thisValue);
     if (thisValue >= thisValueMax) {
       return thisValueMax;
     }
