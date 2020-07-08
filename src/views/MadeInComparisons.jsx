@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+
+import {
+  addCountryToState,
+  deleteAllCountryFromState,
+  deleteCountryFromState,
+} from '../actions/chosenCountriesActions';
 
 import Button from '../components/Button';
 import BurgerMenu from '../components/BurgerMenu';
@@ -14,33 +22,24 @@ import {
   FlexDiv,
 } from '../styles/containers';
 
-const MadeInComparisons = () => {
+const MadeInComparisons = (props) => {
   const [allCountries, setAllCountries] = useState([]);
-  const [countries, setCountry] = useState([]);
   const [value, setValue] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const addCountry = () => {
-    const newCountry = countries.concat({
-      id: value.id,
-      name: value.name,
-      score: Math.round(value.score),
-    });
+  const { chosenCountries } = props;
 
-    setCountry(newCountry);
+  const addCountry = () => {
+    props.addCountryToState(value.id, value.name, Math.round(value.score));
   };
 
   const removeCountry = (id) => {
-    const newCountries = countries.filter((country) => country.id !== id);
-
-    setCountry(newCountries);
+    props.deleteCountryFromState(id);
   };
 
   const removeAllCountries = () => {
-    const emptyCountries = [];
-
-    setCountry(emptyCountries);
+    props.deleteAllCountryFromState();
   };
 
   useEffect(() => {
@@ -92,12 +91,12 @@ const MadeInComparisons = () => {
           +
         </Button>
       </FlexDiv>
-      {countries.map((country) => (
+      {chosenCountries.map((country) => (
         <ComparisonCard
-          key={country.id}
-          name={country.name}
-          note={country.score}
-          removeCountry={() => removeCountry(country.id)}
+          key={country.idCountry}
+          name={country.nameCountry}
+          note={country.scoreCountry}
+          removeCountry={() => removeCountry(country.idCountry)}
         />
       ))}
       <FlexDiv mgTop between>
@@ -114,4 +113,27 @@ const MadeInComparisons = () => {
   );
 };
 
-export default MadeInComparisons;
+const mapStateToProps = (state) => {
+  return {
+    chosenCountries: state.chosenCountries,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCountryToState: (idCountry, nameCountry, scoreCountry) =>
+      dispatch(addCountryToState(idCountry, nameCountry, scoreCountry)),
+    deleteCountryFromState: (idCountry) =>
+      dispatch(deleteCountryFromState(idCountry)),
+    deleteAllCountryFromState: () => dispatch(deleteAllCountryFromState()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MadeInComparisons);
+
+MadeInComparisons.propTypes = {
+  addCountryToState: PropTypes.func.isRequired,
+  deleteAllCountryFromState: PropTypes.func.isRequired,
+  deleteCountryFromState: PropTypes.func.isRequired,
+  chosenCountries: PropTypes.arrayOf.isRequired,
+};
