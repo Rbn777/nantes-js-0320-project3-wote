@@ -25,11 +25,11 @@ const Priorities = () => {
   const [rateEcology, setRateEcology] = useState(0);
   const [rateRights, setRateRights] = useState(0);
   const [rateSociety, setRateSociety] = useState(0);
-  const [sumTemp, setSumTemp] = useState(0);
+  const [sumTemp, setSumTemp] = useState(0); // not really useful variable
 
   const checkPercents = (thisValue, otherValue1, otherValue2) => {
     const thisValueMax = 100 - (otherValue1 + otherValue2);
-    setSumTemp(sumTemp - thisValue);
+    setSumTemp(sumTemp - thisValue); // a useless calculation to change the state and render
     if (thisValue >= thisValueMax) {
       return thisValueMax;
     }
