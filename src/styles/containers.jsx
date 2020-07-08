@@ -12,7 +12,23 @@ export const FlexDiv = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   justify-content: ${(props) => props.between && 'space-between'};
+  justify-content: ${(props) => props.center && 'center'};
   cursor: ${(props) => props.pointer && 'pointer'};
+  margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
+`;
+
+export const GridDiv = styled.div`
+  display: grid;
+  grid-template-columns: ${(props) => props.templateCol};
+  grid-template-rows: ${(props) => props.templateRow};
+  column-gap: ${(props) => props.ColGap};
+  row-gap: ${(props) => props.RowGap};
+  justify-items: ${(props) => props.jstfyItems};
+  align-items: ${(props) => props.algnItems};
+  justify-content: ${(props) => props.jstfyContent};
+  align-content: ${(props) => props.algnContent};
+  grid-column: ${(props) => props.gdColumn};
+  grid-row: ${(props) => props.gdRow};
 `;
 
 export const FlexAlignSelfEnd = styled.div`
@@ -122,6 +138,7 @@ export const CountryCard = styled.div`
   background-color: ${(props) => props.theme.lightGrey};
   border-radius: 10px;
   width: 100%;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,6 +153,7 @@ export const RoundNote = styled.div`
   border-radius: 50px;
   width: 80px;
   height: 40px;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,7 +186,6 @@ export const DeleteCard = styled.button`
     background-color: ${(props) => props.theme.lightGrey};
     border: 1px solid ${(props) => props.theme.darkGrey};
   }
-
   &.noDisplay {
     display: none;
   }
@@ -198,8 +215,9 @@ export const WrapperCaretIconGrey = styled.div`
 
 export const WrapperHeadAccordion = styled(FlexDiv)`
   background-color: ${(props) => props.theme.lightGrey};
-  border-radius: 5px;
+  border-radius: ${(props) => (props.topOnly ? '5px 5px 0 0' : '5px')};
   justify-content: space-between;
+  padding: ${(props) => props.padDetailed && '0.5rem'};
 
   &.noBorderRadius {
     border-radius: 5px 5px 0 0;
@@ -250,5 +268,71 @@ export const DetailItem = styled(FlexDiv)`
 
   &:last-child {
     border-bottom: none;
+  }
+`;
+
+export const FlexDivDetailedComp = styled(FlexDiv)`
+  margin: 0.2rem 0;
+`;
+
+export const FlexDivAccordionDetailed = styled(FlexDiv)`
+  width: ${(props) => props.all && '100%'};
+  margin-bottom: 1rem;
+`;
+
+export const DetailedDiv = styled.div`
+  text-align: center;
+  padding: 0.5rem;
+  border-right: ${(props) =>
+    props.borderRight ? `1px solid ${props.theme.darkGrey}` : 'none'};
+  background-color: ${(props) =>
+    props.white ? props.theme.white : props.theme.lightGrey};
+
+  &:last-child {
+    border-right: none;
+  }
+`;
+
+export const DetailedDivSpec = styled(DetailedDiv)`
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+`;
+
+export const DetailedNoteCountry = styled(DetailedDiv)`
+  display: flex;
+  justify-content: center;
+`;
+
+export const NoteDiv = styled.div`
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.darkGrey};
+  font-weight: bold;
+`;
+
+export const NoteDivColor = styled.div`
+  width: 50%;
+  padding: 0.2em;
+  border-radius: 5px;
+  color: ${(props) => props.theme.white};
+
+  &.redDiv {
+    background-color: ${(props) => props.theme.red};
+  }
+
+  &.greenDiv {
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.yellowDiv {
+    background-color: ${(props) => props.theme.yellow};
+  }
+
+  &.greyDiv {
+    background-color: ${(props) => props.theme.darkGrey};
   }
 `;
