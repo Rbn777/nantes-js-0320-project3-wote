@@ -12,8 +12,23 @@ export const FlexDiv = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   justify-content: ${(props) => props.between && 'space-between'};
+  justify-content: ${(props) => props.center && 'center'};
   cursor: ${(props) => props.pointer && 'pointer'};
   margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
+`;
+
+export const GridDiv = styled.div`
+  display: grid;
+  grid-template-columns: ${(props) => props.templateCol};
+  grid-template-rows: ${(props) => props.templateRow};
+  column-gap: ${(props) => props.ColGap};
+  row-gap: ${(props) => props.RowGap};
+  justify-items: ${(props) => props.jstfyItems};
+  align-items: ${(props) => props.algnItems};
+  justify-content: ${(props) => props.jstfyContent};
+  align-content: ${(props) => props.algnContent};
+  grid-column: ${(props) => props.gdColumn};
+  grid-row: ${(props) => props.gdRow};
 `;
 
 export const FlexAlignSelfEnd = styled.div`
