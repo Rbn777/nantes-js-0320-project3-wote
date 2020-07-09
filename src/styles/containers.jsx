@@ -15,6 +15,7 @@ export const FlexDiv = styled.div`
   justify-content: ${(props) => props.center && 'center'};
   cursor: ${(props) => props.pointer && 'pointer'};
   margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
+  margin-top: ${(props) => props.mgTop && '1rem'};
 `;
 
 export const GridDiv = styled.div`
@@ -83,28 +84,10 @@ export const WrapperIndicator = styled(FlexDiv)`
   border-bottom: 1px solid var(--border-color);
 `;
 
-export const WrapperCaretIconGreen = styled.div`
-  color: ${(props) => props.theme.mainGreen};
-  transform: rotate(0deg);
-  transition: all 100ms ease-in-out;
-
-  &.rotate {
-    transform: rotate(90deg);
-  }
-`;
-
-export const WrapperCaretIconSalmon = styled.div`
-  color: ${(props) => props.theme.salmon};
-  transform: rotate(0deg);
-  transition: all 100ms ease-in-out;
-
-  &.rotate {
-    transform: rotate(90deg);
-  }
-`;
-
-export const WrapperCaretIconBlue = styled.div`
-  color: ${(props) => props.theme.mainBlue};
+export const WrapperCaretIcon = styled.div`
+  color: ${(props) => props.greenIcon && props.theme.mainGreen};
+  color: ${(props) => props.salmonIcon && props.theme.salmon};
+  color: ${(props) => props.blueIcon && props.theme.mainBlue};
   transform: rotate(0deg);
   transition: all 100ms ease-in-out;
 
