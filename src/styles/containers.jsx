@@ -96,26 +96,6 @@ export const WrapperCaretIcon = styled.div`
   }
 `;
 
-// export const WrapperCaretIconSalmon = styled.div`
-//   color: ${(props) => props.theme.salmon};
-//   transform: rotate(0deg);
-//   transition: all 100ms ease-in-out;
-
-//   &.rotate {
-//     transform: rotate(90deg);
-//   }
-// `;
-
-// export const WrapperCaretIconBlue = styled.div`
-//   color: ${(props) => props.theme.mainBlue};
-//   transform: rotate(0deg);
-//   transition: all 100ms ease-in-out;
-
-//   &.rotate {
-//     transform: rotate(90deg);
-//   }
-// `;
-
 export const DetailsIndicatorDiv = styled.div`
   margin-top: 0.5rem;
 

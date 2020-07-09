@@ -14,8 +14,8 @@ export const deleteCountryFromState = (idCountry) => {
   };
 };
 
-export const deleteAllCountryFromState = () => {
+export const deleteAllCountriesFromState = () => {
   return {
-    type: 'DELETE_ALL_COUNTRY',
+    type: 'DELETE_ALL_COUNTRIES',
   };
 };

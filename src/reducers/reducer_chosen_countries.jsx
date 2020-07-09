@@ -13,7 +13,7 @@ const chosenCountriesReducer = (state = initState, action) => {
       ];
     case 'DELETE_COUNTRY':
       return state.filter((item) => item.idCountry !== action.idCountry);
-    case 'DELETE_ALL_COUNTRY':
+    case 'DELETE_ALL_COUNTRIES':
       return [];
     default:
       return state;

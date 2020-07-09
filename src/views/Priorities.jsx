@@ -65,7 +65,9 @@ const Priorities = () => {
           />
           <FlexDiv center>
             <Link to="/profil/priorities/convictions/ecology">
-              <Button greenBg>Écologie</Button>
+              <Button hoverGreenBg white>
+                Aller voir...
+              </Button>
             </Link>
           </FlexDiv>
         </FlexDiv>
@@ -79,7 +81,9 @@ const Priorities = () => {
           />
           <FlexDiv center>
             <Link to="/profil/priorities/convictions/rights">
-              <Button salmonBg>Droits fondamentaux</Button>
+              <Button hoverSalmonBg white>
+                Aller voir...
+              </Button>
             </Link>
           </FlexDiv>
         </FlexDiv>
@@ -93,7 +97,9 @@ const Priorities = () => {
           />
           <FlexDiv center>
             <Link to="/profil/priorities/convictions/society">
-              <Button blueBg>Société</Button>
+              <Button hoverBlueBg white>
+                Aller voir...
+              </Button>
             </Link>
           </FlexDiv>
         </FlexDiv>

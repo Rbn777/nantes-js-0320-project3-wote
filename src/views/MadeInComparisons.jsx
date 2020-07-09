@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import {
   addCountryToState,
-  deleteAllCountryFromState,
+  deleteAllCountriesFromState,
   deleteCountryFromState,
 } from '../actions/chosenCountriesActions';
 
@@ -22,11 +25,22 @@ import {
   FlexDiv,
 } from '../styles/containers';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}));
+
 const MadeInComparisons = (props) => {
   const [allCountries, setAllCountries] = useState([]);
   const [value, setValue] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const classes = useStyles();
 
   const { chosenCountries } = props;
 
@@ -39,7 +53,7 @@ const MadeInComparisons = (props) => {
   };
 
   const removeAllCountries = () => {
-    props.deleteAllCountryFromState();
+    props.deleteAllCountriesFromState();
   };
 
   useEffect(() => {
@@ -59,7 +73,11 @@ const MadeInComparisons = (props) => {
   }, []);
 
   if (isLoading) {
-    return <div>Super loader...</div>;
+    return (
+      <div className={classes.root}>
+        <CircularProgress style={{ color: '#6d6b6c' }} />
+      </div>
+    );
   }
 
   if (error) {
@@ -125,7 +143,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(addCountryToState(idCountry, nameCountry, scoreCountry)),
     deleteCountryFromState: (idCountry) =>
       dispatch(deleteCountryFromState(idCountry)),
-    deleteAllCountryFromState: () => dispatch(deleteAllCountryFromState()),
+    deleteAllCountriesFromState: () => dispatch(deleteAllCountriesFromState()),
   };
 };
 
@@ -133,7 +151,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(MadeInComparisons);
 
 MadeInComparisons.propTypes = {
   addCountryToState: PropTypes.func.isRequired,
-  deleteAllCountryFromState: PropTypes.func.isRequired,
+  deleteAllCountriesFromState: PropTypes.func.isRequired,
   deleteCountryFromState: PropTypes.func.isRequired,
   chosenCountries: PropTypes.arrayOf.isRequired,
 };

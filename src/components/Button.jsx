@@ -13,8 +13,13 @@ const ButtonStyled = styled.button`
   background-color: ${(props) => props.salmonBg && props.theme.salmon};
   background-color: ${(props) => props.blueBg && props.theme.mainBlue};
   background-color: ${(props) => props.greyBg && props.theme.darkGrey};
+  background-color: ${(props) => props.white && props.theme.white};
   &:hover {
-    color: white;
+    color: ${(props) => props.theme.white};
+    color: ${(props) => props.hoverGreenBg && props.theme.mainGreen};
+    color: ${(props) => props.hoverSalmonBg && props.theme.salmon};
+    color: ${(props) => props.hoverBlueBg && props.theme.mainBlue};
+    color: ${(props) => props.hoverWhite && props.theme.white};
   }
 `;
 
@@ -24,11 +29,16 @@ const Button = ({
   greenBg,
   salmonBg,
   blueBg,
+  white,
   disabled,
   greyBg,
   minSize,
   withBorder,
   functionToClick,
+  hoverGreenBg,
+  hoverSalmonBg,
+  hoverBlueBg,
+  hoverWhite,
 }) => {
   return (
     <ButtonStyled
@@ -37,9 +47,14 @@ const Button = ({
       salmonBg={salmonBg}
       blueBg={blueBg}
       greyBg={greyBg}
+      white={white}
       disabled={disabled}
       minSize={minSize}
       withBorder={withBorder}
+      hoverGreenBg={hoverGreenBg}
+      hoverSalmonBg={hoverSalmonBg}
+      hoverBlueBg={hoverBlueBg}
+      hoverWhite={hoverWhite}
       onClick={functionToClick}
     >
       {children}
@@ -53,6 +68,11 @@ Button.propTypes = {
   salmonBg: PropTypes.string.isRequired,
   blueBg: PropTypes.string.isRequired,
   greyBg: PropTypes.string.isRequired,
+  white: PropTypes.string.isRequired,
+  hoverGreenBg: PropTypes.string.isRequired,
+  hoverSalmonBg: PropTypes.string.isRequired,
+  hoverBlueBg: PropTypes.string.isRequired,
+  hoverWhite: PropTypes.string.isRequired,
   buttonType: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   withBorder: PropTypes.string.isRequired,
