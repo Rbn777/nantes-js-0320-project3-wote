@@ -69,3 +69,17 @@ export const DetailIndicatorTitle = styled.p`
   color: ${(props) => props.theme.darkGrey};
   text-align: ${(props) => props.start && 'start'};
 `;
+
+export const TitleItemDetail = styled.h4`
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.green && props.theme.mainGreen};
+  background-color: ${(props) => props.salmon && props.theme.salmon};
+  background-color: ${(props) => props.blue && props.theme.mainBlue};
+`;
+
+export const TextSource = styled.p`
+  margin: 0.2rem 0;
+`;

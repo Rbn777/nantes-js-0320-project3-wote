@@ -319,3 +319,31 @@ export const NoteDivColor = styled.div`
     background-color: ${(props) => props.theme.darkGrey};
   }
 `;
+
+export const ContainerDetailsIndicator = styled(FlexDiv)`
+  text-align: left;
+`;
+
+export const WrapperItemDetail = styled(FlexDiv)`
+  margin: 0.5rem 0;
+  border: ${(props) => props.green && `2px solid ${props.theme.mainGreen}`};
+  border: ${(props) => props.salmon && `2px solid ${props.theme.salmon}`};
+  border: ${(props) => props.blue && `2px solid ${props.theme.mainBlue}`};
+`;
+
+export const WrapperContentItemDetail = styled(FlexDiv)`
+  padding: 0.5rem;
+  color: ${(props) => props.theme.darkGrey};
+  background-color: ${(props) => props.theme.white};
+`;
+
+export const DivCarte = styled.div`
+  border: ${(props) => props.green && `2px solid ${props.theme.mainGreen}`};
+  border: ${(props) => props.salmon && `2px solid ${props.theme.salmon}`};
+  border: ${(props) => props.blue && `2px solid ${props.theme.mainBlue}`};
+`;
+
+export const LogoSourceDiv = styled(FlexDiv)`
+  margin-bottom: 0.8rem;
+  justify-content: center;
+`;
