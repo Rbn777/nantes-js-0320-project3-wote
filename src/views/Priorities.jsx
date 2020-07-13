@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import Axios from 'axios';
 
 import Cursor from '../components/Cursor';
 import BurgerMenu from '../components/BurgerMenu';
@@ -21,29 +24,52 @@ const TextParagraphCenter = styled(TextParagraph)`
   text-align: center;
 `;
 
-const Priorities = () => {
+const Priorities = (props) => {
   const [rateEcology, setRateEcology] = useState(0);
   const [rateRights, setRateRights] = useState(0);
   const [rateSociety, setRateSociety] = useState(0);
-  const [sumTemp, setSumTemp] = useState(0); // not really useful variable
+  const [priorities, setPriorities] = useState([]);
 
-  const checkPercents = (thisValue, otherValue1, otherValue2) => {
-    const thisValueMax = 100 - (otherValue1 + otherValue2);
-    setSumTemp(sumTemp - thisValue); // a useless calculation to change the state and render
-    if (thisValue >= thisValueMax) {
-      return thisValueMax;
-    }
-    return thisValue;
-  };
+  useEffect(() => {
+    const AsyncFunc = async () => {
+      try {
+        const response = await Axios.get(
+          `https://wote.website${props.user.activeProfile}`,
+          {
+            headers: { Accept: 'application/json' },
+          }
+        );
+        setPriorities(response.data.priorities);
+        return priorities;
+      } catch (err) {
+        return err.message;
+      }
+    };
+    AsyncFunc();
+  }, []);
+
+  useEffect(() => {
+    priorities.forEach((priority) => {
+      if (priority.theme.title === 'Ecology') {
+        setRateEcology(priority.value);
+      }
+      if (priority.theme.title === 'Fundamuntal rights') {
+        setRateRights(priority.value);
+      }
+      if (priority.theme.title === 'Society choices') {
+        setRateSociety(priority.value);
+      }
+    });
+  }, [priorities]);
 
   const handleEcology = (e, newValue) => {
-    setRateEcology(checkPercents(newValue, rateRights, rateSociety));
+    setRateEcology(newValue);
   };
   const handleRights = (e, newValue) => {
-    setRateRights(checkPercents(newValue, rateEcology, rateSociety));
+    setRateRights(newValue);
   };
   const handleSociety = (e, newValue) => {
-    setRateSociety(checkPercents(newValue, rateEcology, rateRights));
+    setRateSociety(newValue);
   };
 
   return (
@@ -108,4 +134,14 @@ const Priorities = () => {
   );
 };
 
-export default Priorities;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(Priorities);
+
+Priorities.propTypes = {
+  user: PropTypes.string.isRequired,
+};
