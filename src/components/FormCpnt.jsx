@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
   padding: 20px;
 `;
 

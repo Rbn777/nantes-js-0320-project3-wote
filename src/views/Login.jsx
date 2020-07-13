@@ -58,7 +58,7 @@ const Login = (props) => {
         <FormCpnt submitFuncToPass={handleSubmit}>
           <TextParagraph grey>Connectez-vous :</TextParagraph>
           <InputCpnt
-            labelText="email"
+            labelText="Email"
             inputType="email"
             nameForInput="userLogin"
             inputPlaceHolder="Email de connexion..."
@@ -66,19 +66,21 @@ const Login = (props) => {
             onChangeFunc={handleEmail}
           />
           <InputCpnt
-            labelText="mot de passe"
+            labelText="Mot de passe"
             inputType="password"
             nameForInput="userPassword"
             inputPlaceHolder="Mot de passe..."
             value={passwordUser}
             onChangeFunc={handlePassword}
           />
-          <Button buttonType="submit" greenBg>
+          <Button buttonType="submit" greenBg withMarginTop hoverWhite>
             Entrer
           </Button>
         </FormCpnt>
         <Link to="/register">
-          <TextParagraph grey>Créer un compte utilisateur</TextParagraph>
+          <TextParagraph center underline>
+            Créer un compte utilisateur
+          </TextParagraph>
         </Link>
         <ToastContainer
           position="bottom-center"

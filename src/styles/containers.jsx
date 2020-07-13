@@ -47,6 +47,7 @@ export const MainHeader = styled.header`
   width: 100%;
   padding: 10px;
   text-align: center;
+  z-index: 500;
   background-color: ${(props) => props.theme.lightGrey};
 `;
 

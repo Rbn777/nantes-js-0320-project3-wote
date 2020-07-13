@@ -9,7 +9,7 @@ import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
-import { SectionTitle } from '../styles/texts';
+import { SectionTitle, TextParagraph } from '../styles/texts';
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
@@ -113,12 +113,11 @@ const Register = (props) => {
         />
         <InputCpnt
           labelText={
-            <p>
-              J&apos;accepte les{' '}
+            <TextParagraph underline>
               <Link to="/register/terms-of-use">
-                conditions d&apos;utilisation
+                J&apos;accepte les conditions d&apos;utilisation
               </Link>
-            </p>
+            </TextParagraph>
           }
           inputType="checkbox"
           nameForInput="termsOfUseCheckbox"
@@ -127,7 +126,7 @@ const Register = (props) => {
           inputRequired
           rowReverse
         />
-        <Button buttonType="submit" greenBg>
+        <Button buttonType="submit" greenBg hoverWhite>
           Enregistrer
         </Button>
       </FormCpnt>

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const DivInput = styled.div`
   display: flex;
-  row-gap: 3px;
   flex-direction: ${(props) => (props.rowReverse ? 'row-reverse' : 'column')};
   justify-content: ${(props) => props.rowReverse && 'space-around'};
   width: 100%;
+  margin: 20px 0;
 `;
 
 const InputStyled = styled.input`

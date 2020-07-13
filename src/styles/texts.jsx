@@ -24,7 +24,8 @@ export const H2 = styled.h2`
 export const TextParagraph = styled.p`
   color: ${(props) => props.theme.white};
   color: ${(props) => props.grey && props.theme.darkGrey};
-  text-align: left;
+  text-align: ${(props) => (props.center ? 'center' : 'left')};
+  text-decoration: ${(props) => (props.underline ? 'underline' : 'none')};
 `;
 
 export const TitleIndicator = styled.h3`

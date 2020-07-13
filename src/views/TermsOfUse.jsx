@@ -12,7 +12,7 @@ const TermsOfUse = () => {
       </MainHeader>
       <BurgerMenu />
       <TextParagraph>
-        Données personnelles <br />
+        <b>Données personnelles</b> <br />
         <br />
         Conformément à l&apos;article 34 de la loi &laquo;Informatique et
         Libertés&raquo;, wote garantit à l&apos;utilisateur un droit

@@ -32,6 +32,13 @@ const useStyles = makeStyles(() => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
+
+  inputRoot: {
+    color: 'white',
+    borderColor: 'white',
+    '& .MuiOutlinedInput-root': { border: '1px solid white' },
+    '&:hover .MuiOutlinedInput-root': { border: '6px solid white' },
+  },
 }));
 
 const MadeInComparisons = (props) => {
@@ -93,6 +100,7 @@ const MadeInComparisons = (props) => {
       <FlexDiv>
         <Autocomplete
           value={value}
+          classes={{ inputRoot: classes.inputRoot }}
           onChange={(event, newCountry) => {
             setValue(newCountry);
           }}

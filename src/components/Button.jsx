@@ -7,6 +7,7 @@ const ButtonStyled = styled.button`
   font-size: ${(props) => (props.minSize ? '0.9rem' : '1.2rem')};
   padding: 10px;
   border-radius: 5px;
+  margin-top: ${(props) => props.withMarginTop && '20px'};
   border: ${(props) =>
     props.withBorder ? `1px solid ${props.theme.white}` : 'none'};
   background-color: ${(props) => props.greenBg && props.theme.mainGreen};
@@ -15,7 +16,6 @@ const ButtonStyled = styled.button`
   background-color: ${(props) => props.greyBg && props.theme.darkGrey};
   background-color: ${(props) => props.white && props.theme.white};
   &:hover {
-    color: ${(props) => props.theme.white};
     color: ${(props) => props.hoverGreenBg && props.theme.mainGreen};
     color: ${(props) => props.hoverSalmonBg && props.theme.salmon};
     color: ${(props) => props.hoverBlueBg && props.theme.mainBlue};
@@ -39,9 +39,11 @@ const Button = ({
   hoverSalmonBg,
   hoverBlueBg,
   hoverWhite,
+  withMarginTop,
 }) => {
   return (
     <ButtonStyled
+      withMarginTop={withMarginTop}
       type={buttonType}
       greenBg={greenBg}
       salmonBg={salmonBg}
@@ -63,6 +65,7 @@ const Button = ({
 };
 
 Button.propTypes = {
+  withMarginTop: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   greenBg: PropTypes.string.isRequired,
   salmonBg: PropTypes.string.isRequired,
