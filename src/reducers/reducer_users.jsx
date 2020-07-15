@@ -1,6 +1,6 @@
 const initState = {
-  idUser: 2,
-  emailUser: 'dimitri@gmail.com',
+  idUser: 10,
+  emailUser: 'devwcs@gmail.com',
   activeProfile: '/api/profiles/7',
 };
 
