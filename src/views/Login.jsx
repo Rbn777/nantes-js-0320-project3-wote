@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -11,6 +12,7 @@ import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
 import { H1, TextParagraph } from '../styles/texts';
 import { HeaderStyled, MainContainer } from '../styles/containers';
+import { addUserToState } from '../actions/userActions';
 
 const TextIntro = styled.p`
   font-size: 1.2rem;
@@ -27,6 +29,12 @@ const Login = (props) => {
       await Axios.post('https://wote.website/login_api', {
         email: emailUser,
         password: passwordUser,
+      }).then((response) => {
+        props.addUserToState(
+          response.data.id,
+          emailUser,
+          response.data.activeProfile
+        );
       });
       setTimeout(() => {
         props.history.push('/made-in-comparisons');
@@ -100,6 +108,20 @@ const Login = (props) => {
 
 Login.propTypes = {
   history: PropTypes.string.isRequired,
+  addUserToState: PropTypes.func.isRequired,
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addUserToState: (idUser, emailUser, activeProfile) =>
+      dispatch(addUserToState(idUser, emailUser, activeProfile)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
