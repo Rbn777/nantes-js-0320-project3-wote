@@ -10,7 +10,7 @@ const sizes = {
   normal: 974,
   small: 768,
   xSmall: 576,
-  xxSmall: 350,
+  xxSmall: 400,
 };
 
 const mediaMax = Object.keys(sizes).reduce((acc, label) => {

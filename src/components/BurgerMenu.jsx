@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './BurgerMenu.css';
 
-const BurgerMenu = () => {
+const BurgerMenu = (props) => {
+  const { user } = props;
   return (
     <Menu right width="80%">
-      <p>email@dur.com</p>
+      <span className="email">{user.emailUser}</span>
       <Link to="/profil/priorities">Mes Convictions et priorités</Link>
       <Link to="/made-in-comparisons">
         Comparer des origines de fabrication
@@ -15,13 +18,29 @@ const BurgerMenu = () => {
       <Link to="/all-made-in-comparisons">Comparer tous les pays</Link>
       <Link to="/indicators">Explorer les indicateurs</Link>
       <Link to="/products-comparisons">Comparer des produits</Link>
-      <Link to="/">Se déconnecter</Link>
-      <Link to="/pwd-modification">Modifier le mot de passe</Link>
-      <Link to="/register/terms-of-use">
-        Consulter les conditions d&apos;utilisation
-      </Link>
+      <span className="smallLinks">
+        <Link to="/">
+          <p>Se déconnecter</p>
+        </Link>
+        <Link to="/pwd-modification">
+          <p>Modifier le mot de passe</p>
+        </Link>
+        <Link to="/register/terms-of-use">
+          <p>Consulter les conditions d&apos;utilisation</p>
+        </Link>
+      </span>
     </Menu>
   );
 };
 
-export default BurgerMenu;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(BurgerMenu);
+BurgerMenu.propTypes = {
+  emailUser: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+};
