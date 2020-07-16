@@ -19,8 +19,9 @@
 
 .bm-menu {
   background: #6d6b6c;
-  padding: 40px 40px 40px 40px;
+  padding: 50px 20px 0px 20px;
   text-align: left;
+  font-size: 1.1rem;
 }
 
 .bm-burger-bars {
@@ -36,14 +37,34 @@
   background: white;
 }
 
-.bm-menu {
-  font-size: 1.2em;
+.bm-item {
+  padding-bottom: 40px;
 }
 
-.bm-item {
-  padding-bottom: 30px;
+.bm-overlay {
+  right: 0;
+  top: 0;
+}
+
+.email {
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.smallLinks {
+  font-size: 0.8rem;
+  text-align: start;
+  margin-top: 40px;
+  line-height: 2.5rem;
 }
 
 a {
   text-decoration: none;
+}
+
+a:hover {
+  color: #79d70f;
 }

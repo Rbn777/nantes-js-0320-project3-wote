@@ -80,6 +80,12 @@ export const ContainerIndicators = styled(FlexDiv)`
   color: white;
 `;
 
+export const SelectWrapper = styled(FlexDiv)`
+  ${(props) => props.theme.mediaMax.xxSmall`
+    justify-content: space-between;
+  `};
+`;
+
 export const WrapperIndicator = styled(FlexDiv)`
   padding: 1rem 0;
   border-bottom: 1px solid var(--border-color);
