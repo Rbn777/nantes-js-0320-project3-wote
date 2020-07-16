@@ -26,10 +26,18 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await Axios.post('https://wote.website/login_api', {
-        email: emailUser,
-        password: passwordUser,
-      }).then((response) => {
+      await Axios.post(
+        'https://wote.website/login_api',
+        {
+          email: emailUser,
+          password: passwordUser,
+        },
+        {
+          headers: {
+            'Content-Type': 'application.json',
+          },
+        }
+      ).then((response) => {
         props.addUserToState(
           response.data.id,
           emailUser,
