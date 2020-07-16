@@ -1,21 +1,26 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { DivCursor } from '../styles/containers';
 import { DivCursorTitle } from '../styles/texts';
 
 const options = [
-  { value: -100, label: 'Pas du tout' },
-  { value: -50, label: 'Pas vraiment' },
-  { value: 0, label: 'Sans opinion' },
-  { value: 50, label: 'Un peu' },
-  { value: 100, label: 'Beaucoup' },
+  { value: -100, label: 'Tout à fait le contraire' },
+  { value: -50, label: 'Le contraire' },
+  { value: -25, label: 'Un peu le contraire ' },
+  { value: 0, label: 'Indifférent' },
+  { value: 25, label: 'Un peu d’accord' },
+  { value: 50, label: 'D’accord' },
+  { value: 100, label: 'Tout à fait d’accord' },
 ];
 
-const Selector = ({ titleSelect, textSelect, colorSelect }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+const Selector = ({
+  titleSelect,
+  textSelect,
+  colorSelect,
+  funcToPass,
+  valueToPass,
+}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -37,18 +42,15 @@ const Selector = ({ titleSelect, textSelect, colorSelect }) => {
     }),
   };
 
-  const handleChange = (option) => {
-    setSelectedOption({ option });
-  };
-
   return (
     <DivCursor>
       <DivCursorTitle>{titleSelect}</DivCursorTitle>
       <p>{textSelect}</p>
       <Select
         styles={customStyles}
-        onChange={handleChange}
+        onChange={funcToPass}
         options={options}
+        defaultValue={options.filter((elt) => elt.value === valueToPass)[0]}
         theme={(theme) => ({
           ...theme,
           colors: {
@@ -65,6 +67,8 @@ Selector.propTypes = {
   titleSelect: PropTypes.string.isRequired,
   textSelect: PropTypes.string.isRequired,
   colorSelect: PropTypes.string.isRequired,
+  funcToPass: PropTypes.func.isRequired,
+  valueToPass: PropTypes.func.isRequired,
 };
 
 export default Selector;

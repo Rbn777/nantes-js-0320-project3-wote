@@ -49,26 +49,72 @@ const Priorities = (props) => {
   }, []);
 
   useEffect(() => {
-    priorities.forEach((priority) => {
-      if (priority.theme.title === 'Ecology') {
-        setRateEcology(priority.value);
-      }
-      if (priority.theme.title === 'Fundamuntal rights') {
-        setRateRights(priority.value);
-      }
-      if (priority.theme.title === 'Society choices') {
-        setRateSociety(priority.value);
-      }
-    });
+    if (priorities[0]) {
+      priorities.forEach((priority) => {
+        if (priority.theme.title === 'Ecology') {
+          setRateEcology(priority.value);
+        }
+        if (priority.theme.title === 'Fundamuntal rights') {
+          setRateRights(priority.value);
+        }
+        if (priority.theme.title === 'Society choices') {
+          setRateSociety(priority.value);
+        }
+      });
+    }
   }, [priorities]);
 
   const handleEcology = (e, newValue) => {
+    const arrEcology = priorities.filter(
+      (elt) => elt.theme.title === 'Ecology'
+    );
+    Axios.put(
+      `https://wote.website/api/priorities/${arrEcology[0].id}`,
+      {
+        value: newValue,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     setRateEcology(newValue);
   };
+
   const handleRights = (e, newValue) => {
+    const arrRights = priorities.filter(
+      (elt) => elt.theme.title === 'Fundamuntal rights'
+    );
+    Axios.put(
+      `https://wote.website/api/priorities/${arrRights[0].id}`,
+      {
+        value: newValue,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     setRateRights(newValue);
   };
+
   const handleSociety = (e, newValue) => {
+    const arrSociety = priorities.filter(
+      (elt) => elt.theme.title === 'Society choices'
+    );
+    Axios.put(
+      `https://wote.website/api/priorities/${arrSociety[0].id}`,
+      {
+        value: newValue,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     setRateSociety(newValue);
   };
 
