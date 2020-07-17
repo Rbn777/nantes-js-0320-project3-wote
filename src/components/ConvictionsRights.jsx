@@ -1,48 +1,48 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Axios from 'axios';
+import { connect } from 'react-redux';
 import Selector from './Selector';
 
 import BurgerMenu from './BurgerMenu';
-import { MainHeaderRights, DivButtonConvictions } from '../styles/containers';
+import { MainHeaderRights } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
-const ConvictionsRights = () => {
-  const [politEnv, setPolitEnv] = useState();
-  const [emissionCo2, setEmissionCo2] = useState();
-  const [empreintEco, setEmpreinteEco] = useState();
-  const [proximGeo, setProximGeo] = useState();
-  const [tauxNucleaire, setTauxNucleaire] = useState();
-  const [tauxEnergRenouv, setTauxEnergRenouv] = useState();
-  const [sobrEnerg, setSobrEnerg] = useState();
+const ConvictionsRights = (props) => {
+  const [weightings, setWeightings] = useState([]);
 
-  const politEnvFunc = (e) => {
-    setPolitEnv(e.target.value);
-  };
+  useEffect(() => {
+    const AsyncFunc = async () => {
+      const response = await Axios.get(
+        `https://wote.website${props.user.activeProfile}`,
+        {
+          headers: { Accept: 'application/json' },
+        }
+      );
+      const weightingsDatas = response.data.weightings.filter(
+        (elt) => elt.criterion.theme.title === 'Fundamuntal rights'
+      );
+      setWeightings(weightingsDatas);
+    };
+    AsyncFunc();
+  }, []);
 
-  const emissionCo2Func = (e) => {
-    setEmissionCo2(e.target.value);
-  };
-
-  const empreintEcoFunc = (e) => {
-    setEmpreinteEco(e.target.value);
-  };
-
-  const proximGeoFunc = (e) => {
-    setProximGeo(e.target.value);
-  };
-
-  const tauxNucleaireFunc = (e) => {
-    setTauxNucleaire(e.target.value);
-  };
-
-  const tauxEnergRenouvFunc = (e) => {
-    setTauxEnergRenouv(e.target.value);
-  };
-
-  const sobrEnergFunc = (e) => {
-    setSobrEnerg(e.target.value);
+  const handleSelector = (e, title) => {
+    const theWeighting = weightings.filter(
+      (elt) => elt.criterion.title === title
+    );
+    const idWeighting = theWeighting[0].id;
+    const newValue = e.value;
+    Axios.put(
+      `https://wote.website/api/weightings/${idWeighting}`,
+      {
+        value: newValue,
+      },
+      {
+        headers: { Accept: 'application/json' },
+      }
+    );
   };
 
   return (
@@ -51,53 +51,30 @@ const ConvictionsRights = () => {
         <SectionTitle>Droits fondamentaux</SectionTitle>
       </MainHeaderRights>
       <BurgerMenu />
-      <Selector
-        titleSelect="Politique environementale"
-        color="#f4AA79"
-        textSelect="la politique environementale lorem ipsum dolor..."
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Emission CO2"
-        color="#f4AA79"
-        textSelect="Emission Co2 lorem dolor..."
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Empreinte écologique"
-        color="#f4AA79"
-        textSelect="Il faut limiter l'empreinte de l'activité humaine sur la planète"
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Proximité géographique"
-        color="#f4AA79"
-        textSelect="Il faut éviter de consommer des produits"
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Taux de nucléaire"
-        color="#f4AA79"
-        textSelect="Il faut augmenter le taux du nucléaire dans la production d'énergie"
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Taux d'énergie renouvelable"
-        color="#f4AA79"
-        textSelect="Il faut que l'énergie vienne de sources renouvelables"
-        colorSelect="#f4AA79"
-      />
-      <Selector
-        titleSelect="Sobriété énergétique"
-        color="#f4AA79"
-        textSelect="Il faut limiter la consommation de toute façon"
-        colorSelect="#f4AA79"
-      />
-      <DivButtonConvictions>
-        <FontAwesomeIcon icon={faCheckCircle} size="2x" />
-      </DivButtonConvictions>
+      {weightings.map((elt) => {
+        return (
+          <Selector
+            titleSelect={elt.criterion.title}
+            color="#f4AA79"
+            textSelect={elt.criterion.proposal}
+            colorSelect="#f4AA79"
+            funcToPass={(e) => handleSelector(e, elt.criterion.title)}
+            valueToPass={elt.value}
+          />
+        );
+      })}
     </>
   );
 };
 
-export default ConvictionsRights;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(ConvictionsRights);
+
+ConvictionsRights.propTypes = {
+  user: PropTypes.string.isRequired,
+};
