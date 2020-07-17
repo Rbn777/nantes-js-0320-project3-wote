@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
@@ -14,6 +15,7 @@ import {
   DetailsIndicatorDiv,
 } from '../styles/containers';
 import { TitleIndicator } from '../styles/texts';
+import IndicatorDetails from './IndicatorDetails';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -110,10 +112,15 @@ const IndicatorsCpnt = ({ criteria }) => {
             <DetailsIndicatorDiv
               className={crit.id !== openIndicator && 'hide'}
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Consequatur similique debitis nostrum ad odit, amet voluptatum
-              nisi rerum nulla voluptate atque deleniti veritatis dolore dicta
-              perspiciatis aliquid aut eius non!
+              {crit.theme === '/api/themes/1' && (
+                <IndicatorDetails {...crit} green />
+              )}
+              {crit.theme === '/api/themes/2' && (
+                <IndicatorDetails {...crit} salmon />
+              )}
+              {crit.theme === '/api/themes/3' && (
+                <IndicatorDetails {...crit} blue />
+              )}
             </DetailsIndicatorDiv>
           </WrapperIndicator>
         );

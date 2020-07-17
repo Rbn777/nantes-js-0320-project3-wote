@@ -23,6 +23,7 @@ import {
   MainContainerWithHeader,
   MainHeader,
   FlexDiv,
+  SelectWrapper,
 } from '../styles/containers';
 
 const useStyles = makeStyles(() => ({
@@ -31,6 +32,13 @@ const useStyles = makeStyles(() => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+  },
+
+  inputRoot: {
+    color: 'white',
+    borderColor: 'white',
+    '& .MuiOutlinedInput-notchedOutline': { border: '1px solid white' },
+    '&:hover MuiOutlinedInput-notchedOutline': { border: '6px solid white' },
   },
 }));
 
@@ -90,9 +98,10 @@ const MadeInComparisons = (props) => {
         <SectionTitle>Comparer les origines de fabrication</SectionTitle>
       </MainHeader>
       <BurgerMenu />
-      <FlexDiv>
+      <FlexDiv className="selectSide">
         <Autocomplete
           value={value}
+          classes={{ inputRoot: classes.inputRoot }}
           onChange={(event, newCountry) => {
             setValue(newCountry);
           }}
@@ -105,7 +114,7 @@ const MadeInComparisons = (props) => {
             <TextField {...params} label="Search" variant="outlined" />
           )}
         />
-        <Button withBorder minSize functionToClick={addCountry}>
+        <Button withBorder minSize sideMargin functionToClick={addCountry}>
           +
         </Button>
       </FlexDiv>
@@ -117,16 +126,16 @@ const MadeInComparisons = (props) => {
           removeCountry={() => removeCountry(country.idCountry)}
         />
       ))}
-      <FlexDiv mgTop between>
+      <SelectWrapper mgTop className="bottomButtons">
         <Button withBorder minSize functionToClick={removeAllCountries}>
           Vider la liste
         </Button>
         <Link to="/detailed-comparison">
-          <Button withBorder minSize>
+          <Button withBorder minSize maxSideMargin className="rightButton">
             Comparaison détaillée
           </Button>
         </Link>
-      </FlexDiv>
+      </SelectWrapper>
     </MainContainerWithHeader>
   );
 };
@@ -148,7 +157,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MadeInComparisons);
-
 MadeInComparisons.propTypes = {
   addCountryToState: PropTypes.func.isRequired,
   deleteAllCountriesFromState: PropTypes.func.isRequired,

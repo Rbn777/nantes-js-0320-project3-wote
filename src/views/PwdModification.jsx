@@ -10,11 +10,9 @@ import { SectionTitle } from '../styles/texts';
 const PwdModification = () => {
   return (
     <MainContainerWithHeader>
-      <MainContainerWithHeader>
-        <MainHeader>
-          <SectionTitle>Modifier le mot de passe</SectionTitle>
-        </MainHeader>
-      </MainContainerWithHeader>
+      <MainHeader>
+        <SectionTitle>Modifier le mot de passe</SectionTitle>
+      </MainHeader>
       <BurgerMenu />
       <FormCpnt>
         <InputCpnt
@@ -35,7 +33,7 @@ const PwdModification = () => {
           nameForInput="userPassword"
           inputPlaceHolder="..."
         />
-        <Button type="submit" greenBg>
+        <Button type="submit" greenBg withMarginTop hoverWhite>
           Enregistrer
         </Button>
       </FormCpnt>

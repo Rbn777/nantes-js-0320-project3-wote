@@ -47,6 +47,7 @@ export const MainHeader = styled.header`
   width: 100%;
   padding: 10px;
   text-align: center;
+  z-index: 500;
   background-color: ${(props) => props.theme.lightGrey};
 `;
 
@@ -77,6 +78,12 @@ export const MainContainerWithHeader = styled(MainContainer)`
 export const ContainerIndicators = styled(FlexDiv)`
   margin: 1.2rem 0rem;
   color: white;
+`;
+
+export const SelectWrapper = styled(FlexDiv)`
+  ${(props) => props.theme.mediaMax.xxSmall`
+    justify-content: space-between;
+  `};
 `;
 
 export const WrapperIndicator = styled(FlexDiv)`
@@ -318,4 +325,32 @@ export const NoteDivColor = styled.div`
   &.greyDiv {
     background-color: ${(props) => props.theme.darkGrey};
   }
+`;
+
+export const ContainerDetailsIndicator = styled(FlexDiv)`
+  text-align: left;
+`;
+
+export const WrapperItemDetail = styled(FlexDiv)`
+  margin: 0.5rem 0;
+  border: ${(props) => props.green && `2px solid ${props.theme.mainGreen}`};
+  border: ${(props) => props.salmon && `2px solid ${props.theme.salmon}`};
+  border: ${(props) => props.blue && `2px solid ${props.theme.mainBlue}`};
+`;
+
+export const WrapperContentItemDetail = styled(FlexDiv)`
+  padding: 0.5rem;
+  color: ${(props) => props.theme.darkGrey};
+  background-color: ${(props) => props.theme.white};
+`;
+
+export const DivCarte = styled.div`
+  border: ${(props) => props.green && `2px solid ${props.theme.mainGreen}`};
+  border: ${(props) => props.salmon && `2px solid ${props.theme.salmon}`};
+  border: ${(props) => props.blue && `2px solid ${props.theme.mainBlue}`};
+`;
+
+export const LogoSourceDiv = styled(FlexDiv)`
+  margin-bottom: 0.8rem;
+  justify-content: center;
 `;

@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 
 const ButtonStyled = styled.button`
   font-family: 'MuseoNormal';
-  font-size: ${(props) => (props.minSize ? '0.9rem' : '1.2rem')};
+  font-size: ${(props) => (props.minSize ? '0.85rem' : '1.2rem')};
   padding: 10px;
   border-radius: 5px;
+  margin-left: ${(props) => props.sideMargin && '10px'};
+  margin-left: ${(props) => props.maxSideMargin && '35px'};
+  margin-top: ${(props) => props.withMarginTop && '20px'};
   border: ${(props) =>
     props.withBorder ? `1px solid ${props.theme.white}` : 'none'};
   background-color: ${(props) => props.greenBg && props.theme.mainGreen};
@@ -15,7 +18,6 @@ const ButtonStyled = styled.button`
   background-color: ${(props) => props.greyBg && props.theme.darkGrey};
   background-color: ${(props) => props.white && props.theme.white};
   &:hover {
-    color: ${(props) => props.theme.white};
     color: ${(props) => props.hoverGreenBg && props.theme.mainGreen};
     color: ${(props) => props.hoverSalmonBg && props.theme.salmon};
     color: ${(props) => props.hoverBlueBg && props.theme.mainBlue};
@@ -39,9 +41,13 @@ const Button = ({
   hoverSalmonBg,
   hoverBlueBg,
   hoverWhite,
+  withMarginTop,
+  sideMargin,
+  maxSideMargin,
 }) => {
   return (
     <ButtonStyled
+      withMarginTop={withMarginTop}
       type={buttonType}
       greenBg={greenBg}
       salmonBg={salmonBg}
@@ -56,6 +62,8 @@ const Button = ({
       hoverBlueBg={hoverBlueBg}
       hoverWhite={hoverWhite}
       onClick={functionToClick}
+      sideMargin={sideMargin}
+      maxSideMargin={maxSideMargin}
     >
       {children}
     </ButtonStyled>
@@ -63,6 +71,9 @@ const Button = ({
 };
 
 Button.propTypes = {
+  sideMargin: PropTypes.string.isRequired,
+  maxSideMargin: PropTypes.string.isRequired,
+  withMarginTop: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   greenBg: PropTypes.string.isRequired,
   salmonBg: PropTypes.string.isRequired,
