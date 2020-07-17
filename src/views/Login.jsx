@@ -20,38 +20,24 @@ const TextIntro = styled.p`
 `;
 
 const Login = (props) => {
-  const [emailUser, setEmailUser] = useState();
-  const [passwordUser, setPasswordUser] = useState();
-  const [datas, setDatas] = useState();
+  const [datas, setDatas] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await Axios.post(
-        'https://wote.website/login_api',
-        // {
-        //   email: emailUser,
-        //   password: passwordUser,
-        // },
-        {
-          ...datas,
-        },
-        {
-          headers: {
-            'Content-Type': 'application.json',
-          },
-        }
-      ).then((response) => {
+      await Axios.post('https://wote.website/login_api', {
+        ...datas,
+      }).then((response) => {
         props.addUserToState(
           response.data.id,
-          emailUser,
+          datas.email,
           response.data.activeProfile
         );
       });
       setTimeout(() => {
-        props.history.push('/made-in-comparisons');
+        props.history.push('/profil/priorities');
       }, 1500);
-      toast.success(`${emailUser} est Loggé`, {});
+      toast.success(`${datas.email} est Loggé`, {});
     } catch (err) {
       toast.error(`${err.message}`, {});
     }
@@ -63,13 +49,6 @@ const Login = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // const handleEmail = (e) => {
-  //   setEmailUser(e.target.value);
-  // };
-  // const handlePassword = (e) => {
-  //   setPasswordUser(e.target.value);
-  // };
 
   return (
     <>
@@ -87,17 +66,17 @@ const Login = (props) => {
           <InputCpnt
             labelText="Email"
             inputType="email"
-            nameForInput="userLogin"
+            nameForInput="email"
             inputPlaceHolder="Email de connexion..."
-            value={emailUser}
+            value={datas.email}
             onChangeFunc={handleChange}
           />
           <InputCpnt
             labelText="Mot de passe"
             inputType="password"
-            nameForInput="userPassword"
+            nameForInput="password"
             inputPlaceHolder="Mot de passe..."
-            value={passwordUser}
+            value={datas.password}
             onChangeFunc={handleChange}
           />
           <Button buttonType="submit" greenBg withMarginTop hoverWhite>
