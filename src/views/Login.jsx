@@ -22,15 +22,19 @@ const TextIntro = styled.p`
 const Login = (props) => {
   const [emailUser, setEmailUser] = useState();
   const [passwordUser, setPasswordUser] = useState();
+  const [datas, setDatas] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await Axios.post(
         'https://wote.website/login_api',
+        // {
+        //   email: emailUser,
+        //   password: passwordUser,
+        // },
         {
-          email: emailUser,
-          password: passwordUser,
+          ...datas,
         },
         {
           headers: {
@@ -53,12 +57,19 @@ const Login = (props) => {
     }
   };
 
-  const handleEmail = (e) => {
-    setEmailUser(e.target.value);
+  const handleChange = (e) => {
+    setDatas({
+      ...datas,
+      [e.target.name]: e.target.value,
+    });
   };
-  const handlePassword = (e) => {
-    setPasswordUser(e.target.value);
-  };
+
+  // const handleEmail = (e) => {
+  //   setEmailUser(e.target.value);
+  // };
+  // const handlePassword = (e) => {
+  //   setPasswordUser(e.target.value);
+  // };
 
   return (
     <>
@@ -79,7 +90,7 @@ const Login = (props) => {
             nameForInput="userLogin"
             inputPlaceHolder="Email de connexion..."
             value={emailUser}
-            onChangeFunc={handleEmail}
+            onChangeFunc={handleChange}
           />
           <InputCpnt
             labelText="Mot de passe"
@@ -87,7 +98,7 @@ const Login = (props) => {
             nameForInput="userPassword"
             inputPlaceHolder="Mot de passe..."
             value={passwordUser}
-            onChangeFunc={handlePassword}
+            onChangeFunc={handleChange}
           />
           <Button buttonType="submit" greenBg withMarginTop hoverWhite>
             Entrer
