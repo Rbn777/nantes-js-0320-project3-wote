@@ -63,6 +63,10 @@ export const NoteColor = styled.p`
   &.yellowNote {
     color: ${(props) => props.theme.yellow};
   }
+
+  &.greyNote {
+    color: ${(props) => props.theme.darkGrey};
+  }
 `;
 
 export const DetailIndicatorTitle = styled.p`
