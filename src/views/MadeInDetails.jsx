@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,12 +30,10 @@ const MadeInDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const location = useLocation();
   const classes = useStyles();
+  const { idCountry } = useParams();
 
   useEffect(() => {
-    const { idCountry } = location.country;
-
     const getCountry = async () => {
       try {
         const { data } = await Axios.get(

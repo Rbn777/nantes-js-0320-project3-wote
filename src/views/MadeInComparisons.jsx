@@ -119,19 +119,13 @@ const MadeInComparisons = (props) => {
         </Button>
       </FlexDiv>
       {chosenCountries.map((country) => (
-        <Link
-          to={{
-            pathname: '/made-in-details',
-            country: { ...country },
-          }}
-        >
-          <ComparisonCard
-            key={country.idCountry}
-            name={country.nameCountry}
-            note={country.scoreCountry}
-            removeCountry={() => removeCountry(country.idCountry)}
-          />
-        </Link>
+        <ComparisonCard
+          key={country.idCountry}
+          idCountry={country.idCountry}
+          name={country.nameCountry}
+          note={country.scoreCountry}
+          removeCountry={() => removeCountry(country.idCountry)}
+        />
       ))}
       <SelectWrapper mgTop className="bottomButtons">
         <Button withBorder minSize functionToClick={removeAllCountries}>
