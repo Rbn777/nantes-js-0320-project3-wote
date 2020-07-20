@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useLocation, Link } from 'react-router-dom';
 
 import {
   CountryCard,
@@ -11,6 +12,7 @@ import {
 import { TitleComparison, TextParagraph } from '../styles/texts';
 
 const ComparisonCard = ({
+  idCountry,
   name,
   note,
   colorBg,
@@ -18,11 +20,23 @@ const ComparisonCard = ({
   noPointer,
   removeCountry,
 }) => {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
     <CountryCard>
       <WrapperCountryText column noPointer={noPointer}>
-        <TextParagraph grey>Made in</TextParagraph>
-        <TitleComparison grey>{name}</TitleComparison>
+        {pathname === '/made-in-comparisons' ? (
+          <Link to={`/made-in-comparisons/made-in-details/${idCountry}`}>
+            <TextParagraph grey>Made in</TextParagraph>
+            <TitleComparison grey>{name}</TitleComparison>
+          </Link>
+        ) : (
+          <>
+            <TextParagraph grey>Made in</TextParagraph>
+            <TitleComparison grey>{name}</TitleComparison>
+          </>
+        )}
       </WrapperCountryText>
       <FlexDiv>
         <RoundNote className={colorBg}>
@@ -39,6 +53,7 @@ const ComparisonCard = ({
 export default ComparisonCard;
 
 ComparisonCard.propTypes = {
+  idCountry: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   removeCountry: PropTypes.func.isRequired,
   note: PropTypes.string.isRequired,
