@@ -121,6 +121,7 @@ const MadeInComparisons = (props) => {
       {chosenCountries.map((country) => (
         <ComparisonCard
           key={country.idCountry}
+          idCountry={country.idCountry}
           name={country.nameCountry}
           note={country.scoreCountry}
           removeCountry={() => removeCountry(country.idCountry)}
