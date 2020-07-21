@@ -12,26 +12,22 @@ import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 
 const Register = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [datas, setDatas] = useState({
+    email: '',
+    password: '',
+    passwordCheck: '',
+  });
   const [termsOfUseCheck, setTermsOfUseCheck] = useState(false);
   const [isPasswordOk, setIsPasswordOk] = useState(false);
 
   const checkPasswordStandard = (pass) =>
     pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleNewPassword = (e) => {
-    setPassword(e.target.value);
-    checkPasswordStandard(e.target.value);
-  };
-
-  const handleConfirmPassword = (e) => {
-    setPasswordCheck(e.target.value);
+  const handleChange = (e) => {
+    setDatas({
+      ...datas,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleTermsOfUseCheck = () => {
@@ -40,7 +36,13 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password || !passwordCheck || !termsOfUseCheck) {
+    checkPasswordStandard(datas.password);
+    if (
+      !datas.email ||
+      !datas.password ||
+      !datas.passwordCheck ||
+      !termsOfUseCheck
+    ) {
       toast.warn(`Tous les champs doivent être renseignés...`, {
         position: 'top-center',
         autoClose: 5000,
@@ -55,18 +57,18 @@ const Register = (props) => {
         'Le mot de passe doit comporter 8 caractères au minimum...',
         {}
       );
-    } else if (password !== passwordCheck) {
+    } else if (datas.password !== datas.passwordCheck) {
       toast.error('Les mots de passe doivent correspondre', {});
     } else if (!termsOfUseCheck) {
       toast.error("Les conditions d'utilisation doivent être approuvées", {});
     } else {
       try {
-        await axios.post(`http://localhost:4545/api/users`, {
-          email,
-          password,
+        await axios.post(`https://wote.website/api/register_api`, {
+          email: datas.email,
+          password: datas.password,
         });
         setTimeout(() => {
-          props.history.push('/pwd-modification');
+          props.history.push('/');
         }, 2500);
         toast.success(`L'utilisateur a été ajouté avec succès !`, {});
       } catch (error) {
@@ -87,28 +89,28 @@ const Register = (props) => {
         <InputCpnt
           labelText="Email"
           inputType="email"
-          nameForInput="userLogin"
+          nameForInput="email"
           inputPlaceHolder="Email de connexion..."
-          value={email}
-          onChangeFunc={handleEmail}
+          value={datas.email}
+          onChangeFunc={handleChange}
           inputRequired
         />
         <InputCpnt
           labelText="Mot de passe"
           inputType="password"
-          nameForInput="userPassword"
+          nameForInput="password"
           inputPlaceHolder="Mot de passe..."
-          value={password}
-          onChangeFunc={handleNewPassword}
+          value={datas.password}
+          onChangeFunc={handleChange}
           inputRequired
         />
         <InputCpnt
           labelText="Confirmation du mot de passe"
           inputType="password"
-          nameForInput="userPasswordCheck"
+          nameForInput="passwordCheck"
           inputPlaceHolder="Mot de passe..."
-          value={passwordCheck}
-          onChangeFunc={handleConfirmPassword}
+          value={datas.passwordCheck}
+          onChangeFunc={handleChange}
           inputRequired
         />
         <InputCpnt
