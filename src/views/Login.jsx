@@ -35,7 +35,7 @@ const Login = (props) => {
         );
       });
       setTimeout(() => {
-        props.history.push('/profil/priorities');
+        props.history.push('/made-in-comparisons');
       }, 1500);
       toast.success(`${datas.email} est Loggé`, {});
     } catch (err) {

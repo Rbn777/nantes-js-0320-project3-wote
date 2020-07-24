@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 
 import BurgerMenu from '../components/BurgerMenu';
+import BackButton from '../components/BackButton';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
@@ -41,6 +42,7 @@ const PwdModification = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Modifier le mot de passe</SectionTitle>
       </MainHeader>
       <BurgerMenu />

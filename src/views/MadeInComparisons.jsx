@@ -16,6 +16,7 @@ import {
 } from '../actions/chosenCountriesActions';
 
 import Button from '../components/Button';
+import BackButton from '../components/BackButton';
 import BurgerMenu from '../components/BurgerMenu';
 import ComparisonCard from '../components/ComparisonCard';
 import { SectionTitle } from '../styles/texts';
@@ -95,6 +96,7 @@ const MadeInComparisons = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Comparer les origines de fabrication</SectionTitle>
       </MainHeader>
       <BurgerMenu />

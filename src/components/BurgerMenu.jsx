@@ -9,7 +9,7 @@ import './BurgerMenu.css';
 const BurgerMenu = (props) => {
   const { user } = props;
   return (
-    <Menu right width="80%">
+    <Menu right width="330px">
       <span className="email">{user.emailUser}</span>
       <Link to="/profil/priorities">Mes Convictions et priorités</Link>
       <Link to="/made-in-comparisons">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BurgerMenu from '../components/BurgerMenu';
+import BackButton from '../components/BackButton';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 
@@ -8,9 +8,9 @@ const TermsOfUse = () => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Conditions d&apos;utilisation</SectionTitle>
       </MainHeader>
-      <BurgerMenu />
       <TextParagraph>
         <b>Données personnelles</b> <br />
         <br />

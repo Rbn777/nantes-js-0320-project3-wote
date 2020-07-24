@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Selector from './Selector';
 
 import BurgerMenu from './BurgerMenu';
+import BackButton from './BackButton';
 import { MainHeaderRights } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
@@ -48,6 +49,7 @@ const ConvictionsRights = (props) => {
   return (
     <>
       <MainHeaderRights>
+        <BackButton />
         <SectionTitle>Droits fondamentaux</SectionTitle>
       </MainHeaderRights>
       <BurgerMenu />

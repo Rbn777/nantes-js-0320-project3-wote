@@ -15,6 +15,7 @@ import {
 } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 import Button from '../components/Button';
+import BackButton from '../components/BackButton';
 
 const HeightGridDiv = styled(GridDiv)`
   height: 75vh;
@@ -121,6 +122,7 @@ const Priorities = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Mes priorités</SectionTitle>
       </MainHeader>
       <BurgerMenu />
