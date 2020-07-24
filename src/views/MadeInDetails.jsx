@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import BurgerMenu from '../components/BurgerMenu';
+import BackButton from '../components/BackButton';
 import ComparisonCard from '../components/ComparisonCard';
 import AccordionIndicator from '../components/AccordionIndicator';
 import {
@@ -103,6 +104,7 @@ const MadeInDetails = () => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Détails d&apos;une origine de fabrication</SectionTitle>
       </MainHeader>
       <BurgerMenu />

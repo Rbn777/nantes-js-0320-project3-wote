@@ -5,6 +5,7 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import Selector from './Selector';
 import BurgerMenu from './BurgerMenu';
+import BackButton from './BackButton';
 import { MainHeaderEcology } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
@@ -47,6 +48,7 @@ const ConvictionsEcology = (props) => {
   return (
     <>
       <MainHeaderEcology>
+        <BackButton />
         <SectionTitle>Ecologie</SectionTitle>
       </MainHeaderEcology>
       <BurgerMenu />

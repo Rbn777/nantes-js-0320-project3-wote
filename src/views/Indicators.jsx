@@ -12,6 +12,7 @@ import {
 import { SectionTitle } from '../styles/texts';
 import BurgerMenu from '../components/BurgerMenu';
 import IndicatorsCpnt from '../components/IndicatorsCpnt';
+import BackButton from '../components/BackButton';
 
 const Tab = styled.div`
   padding: 0.4rem;
@@ -105,6 +106,7 @@ const Indicators = () => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Les indicateurs</SectionTitle>
       </MainHeader>
       <BurgerMenu />

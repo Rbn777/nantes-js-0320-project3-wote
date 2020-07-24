@@ -14,6 +14,7 @@ import {
   DetailedDivSpec,
 } from '../styles/containers';
 import BurgerMenu from '../components/BurgerMenu';
+import BackButton from '../components/BackButton';
 import { SectionTitle } from '../styles/texts';
 import DetailedComparisonItem from '../components/DetailedComparisonItem';
 
@@ -99,6 +100,7 @@ const DetailedComparison = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>
           Comparaison détaillée des origines de fabrication
         </SectionTitle>

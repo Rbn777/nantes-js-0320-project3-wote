@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,10 +12,13 @@ const WrapperBackButton = styled.div`
 
   &.hoverBackButton:hover .hoverBackButton-icon {
     color: ${(props) => props.theme.darkGrey};
+    cursor: pointer;
   }
 `;
 
 const BackButton = () => {
+  const history = useHistory();
+
   return (
     <WrapperBackButton className="hoverBackButton">
       <FontAwesomeIcon
@@ -23,6 +26,7 @@ const BackButton = () => {
         size="3x"
         color="white"
         className="hoverBackButton-icon"
+        onClick={() => history.goBack()}
       />
     </WrapperBackButton>
   );

@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
+import BackButton from '../components/BackButton';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 
@@ -81,6 +82,7 @@ const Register = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Enregistrement</SectionTitle>
       </MainHeader>
       <FormCpnt submitFuncToPass={handleSubmit}>
