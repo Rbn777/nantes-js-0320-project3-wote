@@ -110,7 +110,10 @@ const DetailedComparisonItem = ({
                 onClick={() => handleClick(id)}
               >
                 <WrapperTitleAccordion>
-                  <WrapperCaretIconGrey id={`toRotate${id}`}>
+                  <WrapperCaretIconGrey
+                    id={`toRotate${id}`}
+                    className="resetCaretIconToNormal"
+                  >
                     <FontAwesomeIcon icon={faCaretRight} />
                   </WrapperCaretIconGrey>
                   <TitleIndicatorDetail>{el.themeName}</TitleIndicatorDetail>
@@ -142,7 +145,10 @@ const DetailedComparisonItem = ({
                   );
                 })}
               </FlexDiv>
-              <DetailsIndicators id={id.toString(10)}>
+              <DetailsIndicators
+                id={id.toString(10)}
+                className="resetDisplayToNone"
+              >
                 {el.criteria.map((item) => {
                   return (
                     <DetailItem column>

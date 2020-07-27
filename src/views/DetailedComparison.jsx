@@ -41,10 +41,28 @@ const DetailedComparison = (props) => {
   const width = `calc(100%/${nbCountries})`;
 
   const handleClick = (index) => {
-    const elToShowDiv = document.getElementById(`${index}`);
-    const elToRotateArrow = document.getElementById(`toRotate${index}`);
-    elToShowDiv.classList.toggle('open');
-    elToRotateArrow.classList.toggle('rotate');
+    let isSameItem = false;
+    const cards = document.querySelectorAll('.resetDisplayToNone');
+    cards.forEach((card) => {
+      if (card.classList.contains('open')) {
+        card.classList.remove('open');
+        if (Number(index) === Number(card.id)) {
+          isSameItem = true;
+        }
+      }
+    });
+    const rotates = document.querySelectorAll('.resetCaretIconToNormal');
+    rotates.forEach((rotate) => {
+      if (rotate.classList.contains('rotate')) {
+        rotate.classList.remove('rotate');
+      }
+    });
+    if (!isSameItem) {
+      const elToShowDiv = document.getElementById(`${index}`);
+      const elToRotateArrow = document.getElementById(`toRotate${index}`);
+      elToShowDiv.classList.toggle('open');
+      elToRotateArrow.classList.toggle('rotate');
+    }
   };
 
   useEffect(() => {
