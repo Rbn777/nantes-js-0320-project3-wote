@@ -9,6 +9,7 @@ const chosenCountriesReducer = (state = initState, action) => {
           idCountry: action.idCountry,
           nameCountry: action.nameCountry,
           scoreCountry: action.scoreCountry,
+          frNameCountry: action.frNameCountry,
         },
       ];
     case 'DELETE_COUNTRY':
