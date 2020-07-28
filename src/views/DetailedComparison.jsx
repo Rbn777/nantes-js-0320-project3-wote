@@ -9,7 +9,7 @@ import {
   MainContainerWithHeader,
   MainHeader,
   FlexDiv,
-  FlexDivDetailedComp,
+  FlexDivTitleScore,
   NoteDiv,
   DetailedDivSpec,
 } from '../styles/containers';
@@ -125,13 +125,13 @@ const DetailedComparison = (props) => {
       </MainHeader>
       <BurgerMenu />
       <FlexDiv column>
-        <FlexDiv mgBottom column>
-          <FlexDivDetailedComp between>
+        <FlexDivTitleScore column>
+          <FlexDiv between>
             {chosenCountries.map((note) => {
               return <NoteDiv style={{ width }}>{note.scoreCountry}</NoteDiv>;
             })}
-          </FlexDivDetailedComp>
-          <FlexDivDetailedComp between>
+          </FlexDiv>
+          <FlexDiv between>
             {chosenCountries.map((name) => {
               return (
                 <DetailedDivSpec style={{ width }} borderRight>
@@ -139,8 +139,8 @@ const DetailedComparison = (props) => {
                 </DetailedDivSpec>
               );
             })}
-          </FlexDivDetailedComp>
-        </FlexDiv>
+          </FlexDiv>
+        </FlexDivTitleScore>
         {themes.map((theme, index) => {
           return (
             <DetailedComparisonItem

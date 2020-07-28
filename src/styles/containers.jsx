@@ -261,8 +261,13 @@ export const DetailItem = styled(FlexDiv)`
   }
 `;
 
-export const FlexDivDetailedComp = styled(FlexDiv)`
-  margin: 0.2rem 0;
+export const FlexDivTitleScore = styled(FlexDiv)`
+  position: sticky;
+  top: 6rem;
+  margin-bottom: 1rem;
+  background-color: ${(props) => props.theme.darkGrey};
+  border-radius: 0 0 5px 5px;
+  z-index: 2;
 `;
 
 export const FlexDivAccordionDetailed = styled(FlexDiv)`
@@ -302,6 +307,15 @@ export const NoteDiv = styled.div`
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme.darkGrey};
   font-weight: bold;
+  padding: 0.8rem 0;
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
 `;
 
 export const NoteDivColor = styled.div`
