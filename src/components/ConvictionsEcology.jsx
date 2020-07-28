@@ -21,7 +21,7 @@ const ConvictionsEcology = (props) => {
         }
       );
       const weightingsDatas = response.data.weightings.filter(
-        (elt) => elt.criterion.theme.title === 'Ecology'
+        (elt) => elt.criterion.theme.id === 1
       );
       setWeightings(weightingsDatas);
     };

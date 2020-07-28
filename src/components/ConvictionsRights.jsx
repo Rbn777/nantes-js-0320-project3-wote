@@ -22,7 +22,7 @@ const ConvictionsRights = (props) => {
         }
       );
       const weightingsDatas = response.data.weightings.filter(
-        (elt) => elt.criterion.theme.title === 'Fundamuntal rights'
+        (elt) => elt.criterion.theme.id === 2
       );
       setWeightings(weightingsDatas);
     };
