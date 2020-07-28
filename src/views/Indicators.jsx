@@ -52,7 +52,7 @@ const useStyles = makeStyles(() => ({
 const Indicators = () => {
   const [themes, setThemes] = useState([]);
   const [criterias, setCriterias] = useState([]);
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -76,6 +76,9 @@ const Indicators = () => {
           };
         });
         setThemes(coloredDatas);
+
+        const { criteria } = coloredDatas.find((t) => t.id === 1);
+        setCriterias(criteria);
       } catch (err) {
         setError(err);
       } finally {
