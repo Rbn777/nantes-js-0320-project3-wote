@@ -21,14 +21,18 @@ const Register = (props) => {
   const [termsOfUseCheck, setTermsOfUseCheck] = useState(false);
   const [isPasswordOk, setIsPasswordOk] = useState(false);
 
-  const checkPasswordStandard = (pass) =>
-    pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
+  const checkPasswordStandard = (pass) => {
+    return pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
+  };
 
   const handleChange = (e) => {
     setDatas({
       ...datas,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === 'password') {
+      checkPasswordStandard(e.target.value);
+    }
   };
 
   const handleTermsOfUseCheck = () => {
@@ -37,7 +41,7 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    checkPasswordStandard(datas.password);
+    /* checkPasswordStandard(datas.password); */
     if (
       !datas.email ||
       !datas.password ||
