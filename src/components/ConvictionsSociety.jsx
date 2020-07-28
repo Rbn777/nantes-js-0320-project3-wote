@@ -21,7 +21,7 @@ const ConvictionsSociety = (props) => {
         }
       );
       const weightingsDatas = response.data.weightings.filter(
-        (elt) => elt.criterion.theme.title === 'Society choices'
+        (elt) => elt.criterion.theme.id === 3
       );
       setWeightings(weightingsDatas);
     };

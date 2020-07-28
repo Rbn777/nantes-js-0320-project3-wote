@@ -65,9 +65,7 @@ const Priorities = (props) => {
   }, [priorities]);
 
   const handleEcology = (e, newValue) => {
-    const arrEcology = priorities.filter(
-      (elt) => elt.theme.title === 'Ecology'
-    );
+    const arrEcology = priorities.filter((elt) => elt.theme.id === 1);
     Axios.put(
       `https://wote.website/api/priorities/${arrEcology[0].id}`,
       {
@@ -83,9 +81,7 @@ const Priorities = (props) => {
   };
 
   const handleRights = (e, newValue) => {
-    const arrRights = priorities.filter(
-      (elt) => elt.theme.title === 'Fundamuntal rights'
-    );
+    const arrRights = priorities.filter((elt) => elt.theme.id === 2);
     Axios.put(
       `https://wote.website/api/priorities/${arrRights[0].id}`,
       {
@@ -101,9 +97,7 @@ const Priorities = (props) => {
   };
 
   const handleSociety = (e, newValue) => {
-    const arrSociety = priorities.filter(
-      (elt) => elt.theme.title === 'Society choices'
-    );
+    const arrSociety = priorities.filter((elt) => elt.theme.id === 3);
     Axios.put(
       `https://wote.website/api/priorities/${arrSociety[0].id}`,
       {
