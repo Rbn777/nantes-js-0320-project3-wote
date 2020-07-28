@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
@@ -108,13 +109,41 @@ const MadeInDetails = () => {
         <SectionTitle>Détails d&apos;une origine de fabrication</SectionTitle>
       </MainHeader>
       <BurgerMenu />
-      <ComparisonCard
-        name={countryScores.name}
-        note={countryScores.score}
-        colorBg="green"
-        noButton="noDisplay"
-        noPointer
-      />
+      {countryScores.score <= 35 && (
+        <ComparisonCard
+          name={countryScores.name}
+          note={countryScores.score}
+          colorBg="red"
+          noButton="noDisplay"
+          noPointer
+        />
+      )}
+      {countryScores.score > 35 && countryScores.score <= 65 && (
+        <ComparisonCard
+          name={countryScores.name}
+          note={countryScores.score}
+          colorBg="yellow"
+          noButton="noDisplay"
+          noPointer
+        />
+      )}
+      {countryScores.score > 65 && (
+        <ComparisonCard
+          name={countryScores.name}
+          note={countryScores.score}
+          colorBg="green"
+          noButton="noDisplay"
+          noPointer
+        />
+      )}
+      {isNaN(countryScores.score) && (
+        <ComparisonCard
+          name={countryScores.name}
+          note={countryScores.score}
+          noButton="noDisplay"
+          noPointer
+        />
+      )}
       <ContainerAccordions column>
         <WrapperAccordion column>
           {countryScores.themes.map((item, index) => {
