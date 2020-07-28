@@ -1,9 +1,15 @@
-export const addCountryToState = (idCountry, nameCountry, scoreCountry) => {
+export const addCountryToState = (
+  idCountry,
+  nameCountry,
+  scoreCountry,
+  frNameCountry
+) => {
   return {
     type: 'ADD_COUNTRY',
     idCountry,
     nameCountry,
     scoreCountry,
+    frNameCountry,
   };
 };
 

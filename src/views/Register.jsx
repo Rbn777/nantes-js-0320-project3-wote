@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
+import BackButton from '../components/BackButton';
 import { MainHeader, MainContainerWithHeader } from '../styles/containers';
 import { SectionTitle, TextParagraph } from '../styles/texts';
 
@@ -20,14 +21,18 @@ const Register = (props) => {
   const [termsOfUseCheck, setTermsOfUseCheck] = useState(false);
   const [isPasswordOk, setIsPasswordOk] = useState(false);
 
-  const checkPasswordStandard = (pass) =>
-    pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
+  const checkPasswordStandard = (pass) => {
+    return pass.length >= 8 ? setIsPasswordOk(true) : setIsPasswordOk(false);
+  };
 
   const handleChange = (e) => {
     setDatas({
       ...datas,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === 'password') {
+      checkPasswordStandard(e.target.value);
+    }
   };
 
   const handleTermsOfUseCheck = () => {
@@ -36,7 +41,7 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    checkPasswordStandard(datas.password);
+    /* checkPasswordStandard(datas.password); */
     if (
       !datas.email ||
       !datas.password ||
@@ -83,6 +88,7 @@ const Register = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Enregistrement</SectionTitle>
       </MainHeader>
       <FormCpnt submitFuncToPass={handleSubmit}>

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Selector from './Selector';
 
 import BurgerMenu from './BurgerMenu';
+import BackButton from './BackButton';
 import { MainHeaderSociety } from '../styles/containers';
 import { SectionTitle } from '../styles/texts';
 
@@ -21,7 +22,7 @@ const ConvictionsSociety = (props) => {
         }
       );
       const weightingsDatas = response.data.weightings.filter(
-        (elt) => elt.criterion.theme.title === 'Society choices'
+        (elt) => elt.criterion.theme.id === 3
       );
       setWeightings(weightingsDatas);
     };
@@ -48,6 +49,7 @@ const ConvictionsSociety = (props) => {
   return (
     <>
       <MainHeaderSociety>
+        <BackButton />
         <SectionTitle>Société</SectionTitle>
       </MainHeaderSociety>
       <BurgerMenu />

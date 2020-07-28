@@ -12,6 +12,7 @@ import {
 import { SectionTitle } from '../styles/texts';
 import BurgerMenu from '../components/BurgerMenu';
 import IndicatorsCpnt from '../components/IndicatorsCpnt';
+import BackButton from '../components/BackButton';
 
 const Tab = styled.div`
   padding: 0.4rem;
@@ -51,7 +52,7 @@ const useStyles = makeStyles(() => ({
 const Indicators = () => {
   const [themes, setThemes] = useState([]);
   const [criterias, setCriterias] = useState([]);
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -75,6 +76,9 @@ const Indicators = () => {
           };
         });
         setThemes(coloredDatas);
+
+        const { criteria } = coloredDatas.find((t) => t.id === 1);
+        setCriterias(criteria);
       } catch (err) {
         setError(err);
       } finally {
@@ -105,6 +109,7 @@ const Indicators = () => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Les indicateurs</SectionTitle>
       </MainHeader>
       <BurgerMenu />

@@ -16,6 +16,7 @@ import {
 } from '../actions/chosenCountriesActions';
 
 import Button from '../components/Button';
+import BackButton from '../components/BackButton';
 import BurgerMenu from '../components/BurgerMenu';
 import ComparisonCard from '../components/ComparisonCard';
 import { SectionTitle } from '../styles/texts';
@@ -53,8 +54,17 @@ const MadeInComparisons = (props) => {
   const { chosenCountries } = props;
 
   const addCountry = () => {
-    props.addCountryToState(value.id, value.name, Math.round(value.score));
+    props.addCountryToState(
+      value.id,
+      value.name,
+      Math.round(value.score),
+      value.frName
+    );
   };
+
+  const filteredCountries = allCountries.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
 
   const removeCountry = (id) => {
     props.deleteCountryFromState(id);
@@ -95,6 +105,7 @@ const MadeInComparisons = (props) => {
   return (
     <MainContainerWithHeader>
       <MainHeader>
+        <BackButton />
         <SectionTitle>Comparer les origines de fabrication</SectionTitle>
       </MainHeader>
       <BurgerMenu />
@@ -106,8 +117,8 @@ const MadeInComparisons = (props) => {
             setValue(newCountry);
           }}
           id="combo-box-demo"
-          options={allCountries}
-          getOptionLabel={(option) => option.name}
+          options={filteredCountries}
+          getOptionLabel={(option) => `${option.name} / ${option.frName}`}
           style={{ width: 300 }}
           renderInput={(params) => (
             // eslint-disable-next-line react/jsx-props-no-spreading
@@ -124,6 +135,7 @@ const MadeInComparisons = (props) => {
           idCountry={country.idCountry}
           name={country.nameCountry}
           note={country.scoreCountry}
+          frName={country.frNameCountry}
           removeCountry={() => removeCountry(country.idCountry)}
         />
       ))}
@@ -149,8 +161,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCountryToState: (idCountry, nameCountry, scoreCountry) =>
-      dispatch(addCountryToState(idCountry, nameCountry, scoreCountry)),
+    addCountryToState: (idCountry, nameCountry, scoreCountry, frNameCountry) =>
+      dispatch(
+        addCountryToState(idCountry, nameCountry, scoreCountry, frNameCountry)
+      ),
     deleteCountryFromState: (idCountry) =>
       dispatch(deleteCountryFromState(idCountry)),
     deleteAllCountriesFromState: () => dispatch(deleteAllCountriesFromState()),
