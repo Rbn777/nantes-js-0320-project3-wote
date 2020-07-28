@@ -15,7 +15,6 @@ const ComparisonCard = ({
   idCountry,
   name,
   note,
-  colorBg,
   noButton,
   noPointer,
   removeCountry,
@@ -44,9 +43,21 @@ const ComparisonCard = ({
         )}
       </WrapperCountryText>
       <FlexDiv>
-        <RoundNote className={colorBg}>
-          <TextParagraph>{note}/100</TextParagraph>
-        </RoundNote>
+        {note <= 35 && (
+          <RoundNote className="red">
+            <TextParagraph>{note}/100</TextParagraph>
+          </RoundNote>
+        )}
+        {note > 35 && note <= 65 && (
+          <RoundNote className="yellow">
+            <TextParagraph>{note}/100</TextParagraph>
+          </RoundNote>
+        )}
+        {note > 65 && (
+          <RoundNote className="green">
+            <TextParagraph>{note}/100</TextParagraph>
+          </RoundNote>
+        )}
         <DeleteCard className={noButton} onClick={removeCountry}>
           x
         </DeleteCard>
@@ -63,7 +74,6 @@ ComparisonCard.propTypes = {
   frName: PropTypes.string.isRequired,
   removeCountry: PropTypes.func.isRequired,
   note: PropTypes.string.isRequired,
-  colorBg: PropTypes.string.isRequired,
   noButton: PropTypes.string.isRequired,
   noPointer: PropTypes.string.isRequired,
 };
