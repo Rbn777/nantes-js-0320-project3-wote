@@ -107,7 +107,7 @@ const IndicatorsCpnt = ({ criteria }) => {
                   <FontAwesomeIcon icon={faCaretRight} />
                 </WrapperCaretIcon>
               )}
-              <TitleIndicator>{crit.designation}</TitleIndicator>
+              <TitleIndicator>{crit.title}</TitleIndicator>
             </FlexDiv>
             <DetailsIndicatorDiv
               className={crit.id !== openIndicator && 'hide'}
