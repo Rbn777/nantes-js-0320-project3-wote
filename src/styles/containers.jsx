@@ -13,6 +13,7 @@ export const FlexDiv = styled.div`
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   justify-content: ${(props) => props.between && 'space-between'};
   justify-content: ${(props) => props.center && 'center'};
+  align-items: ${(props) => props.align && 'center'};
   cursor: ${(props) => props.pointer && 'pointer'};
   margin-bottom: ${(props) => props.mgBottom && '0.5rem'};
   margin-top: ${(props) => props.mgTop && '1rem'};
@@ -367,4 +368,9 @@ export const DivCarte = styled.div`
 export const LogoSourceDiv = styled(FlexDiv)`
   margin-bottom: 0.8rem;
   justify-content: center;
+`;
+
+export const ImgLogo = styled.img`
+  width: 200px;
+  margin: 50px 0 30px 0;
 `;
