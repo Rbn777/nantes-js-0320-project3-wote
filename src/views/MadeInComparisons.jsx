@@ -52,6 +52,9 @@ const MadeInComparisons = (props) => {
   const classes = useStyles();
 
   const { chosenCountries } = props;
+  const chosenCoutriesSortedByNote = [...chosenCountries].sort(
+    (a, b) => b.scoreCountry - a.scoreCountry
+  );
 
   const addCountry = () => {
     props.addCountryToState(
@@ -129,7 +132,7 @@ const MadeInComparisons = (props) => {
           +
         </Button>
       </FlexDiv>
-      {chosenCountries.map((country) => (
+      {chosenCoutriesSortedByNote.map((country) => (
         <ComparisonCard
           key={country.idCountry}
           idCountry={country.idCountry}
