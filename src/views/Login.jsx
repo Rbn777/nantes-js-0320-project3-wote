@@ -10,9 +10,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import FormCpnt from '../components/FormCpnt';
 import InputCpnt from '../components/InputCpnt';
 import Button from '../components/Button';
-import { H1, TextParagraph } from '../styles/texts';
-import { HeaderStyled, MainContainer } from '../styles/containers';
+import { TextParagraph } from '../styles/texts';
+import {
+  HeaderStyled,
+  MainContainer,
+  ImgLogo,
+  FlexDiv,
+} from '../styles/containers';
 import { addUserToState } from '../actions/userActions';
+
+import Logo from '../medias/logo_wote-13.svg';
 
 const TextIntro = styled.p`
   font-size: 1.2rem;
@@ -54,12 +61,14 @@ const Login = (props) => {
     <>
       <MainContainer>
         <HeaderStyled>
-          <H1>WOTE</H1>
-          <TextIntro>
-            Votez pour le monde que vous voulez...
-            <br />
-            ...quand vous dépensez de l&apos;argent.
-          </TextIntro>
+          <FlexDiv column center align>
+            <ImgLogo alt="logo-wote" src={Logo} />
+            <TextIntro>
+              Votez pour le monde que vous voulez...
+              <br />
+              ...quand vous dépensez de l&apos;argent.
+            </TextIntro>
+          </FlexDiv>
         </HeaderStyled>
         <FormCpnt submitFuncToPass={handleSubmit}>
           <TextParagraph grey>Connectez-vous :</TextParagraph>
